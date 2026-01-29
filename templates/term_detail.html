@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}{{ term.english_term }} - TCM Termbase{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Breadcrumb -->
+    <nav class="mb-6">
+        <ol class="flex items-center space-x-2 text-sm text-gray-500">
+            <li><a href="{{ url_for('index') }}" class="hover:text-teal-600">Home</a></li>
+            <li>/</li>
+            {% if term.category %}
+            <li><a href="{{ url_for('browse', category=term.category_id) }}" class="hover:text-teal-600">{{ term.category.name_en }}</a></li>
+            <li>/</li>
+            {% endif %}
+            <li class="text-gray-900">{{ term.english_term }}</li>
+        </ol>
+    </nav>
+
+    <!-- Main Term Card -->
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-teal-700 to-teal-800 text-white p-8">
+            <div class="flex items-start justify-between">
+                <div>
+                    <h1 class="chinese-text text-4xl font-bold mb-2">{{ term.chinese_simplified }}</h1>
+                    {% if term.chinese_traditional and term.chinese_traditional != term.chinese_simplified %}
+                    <p class="chinese-text text-teal-200 text-xl">繁體: {{ term.chinese_traditional }}</p>
+                    {% endif %}
+                    <p class="text-teal-100 text-xl mt-2">{{ term.pinyin }}</p>
+                </div>
+                <div class="text-right">
+                    {% if term.who_standard %}
+                    <span class="inline-block bg-white text-teal-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        ✓ WHO Standard
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mt-4">
+                <h2 class="text-2xl font-semibold">{{ term.english_term }}</h2>
+                {% if term.english_aliases %}
+                <p class="text-teal-200 mt-1">Also: {{ term.english_aliases }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8">
+            <!-- Definitions -->
+            {% if term.definition_en %}
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <span class="w-8 h-8 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center mr-2 text-sm">EN</span>
+                    English Definition
+                </h3>
+                <p class="text-gray-700 leading-relaxed pl-10">{{ term.definition_en }}</p>
+            </div>
+            {% endif %}
+
+            {% if term.definition_zh %}
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <span class="w-8 h-8 bg-red-100 text-red-700 rounded-full flex items-center justify-center mr-2 text-sm">中</span>
+                    中文定义
+                </h3>
+                <p class="text-gray-700 leading-relaxed chinese-text pl-10">{{ term.definition_zh }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Etymology -->
+            {% if term.etymology %}
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">📜 Etymology</h3>
+                <p class="text-gray-700 leading-relaxed pl-10">{{ term.etymology }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Clinical Notes -->
+            {% if term.clinical_notes %}
+            <div class="mb-8 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">⚕️ Clinical Notes</h3>
+                <p class="text-gray-700">{{ term.clinical_notes }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Metadata -->
+            <div class="border-t border-gray-200 pt-6 mt-8">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                    {% if term.category %}
+                    <div>
+                        <span class="text-gray-500">Category</span>
+                        <p class="font-medium">{{ term.category.name_en }}</p>
+                        <p class="text-gray-500 chinese-text">{{ term.category.name_zh }}</p>
+                    </div>
+                    {% endif %}
+                    {% if term.subcategory %}
+                    <div>
+                        <span class="text-gray-500">Subcategory</span>
+                        <p class="font-medium">{{ term.subcategory }}</p>
+                    </div>
+                    {% endif %}
+                    {% if term.source %}
+                    <div>
+                        <span class="text-gray-500">Source</span>
+                        <p class="font-medium">{{ term.source }}</p>
+                    </div>
+                    {% endif %}
+                    <div>
+                        <span class="text-gray-500">Reliability</span>
+                        <p class="font-medium">
+                            {% for i in range(term.reliability_score) %}⭐{% endfor %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Terms -->
+    {% if related_terms %}
+    <div class="mt-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Related Terms</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {% for related in related_terms %}
+            <a href="{{ url_for('term_detail', term_id=related.id) }}" 
+               class="bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="chinese-text text-lg font-medium">{{ related.chinese_simplified }}</span>
+                        <span class="text-gray-500 ml-2">{{ related.pinyin }}</span>
+                    </div>
+                    {% if related.who_standard %}<span class="who-badge">WHO</span>{% endif %}
+                </div>
+                <p class="text-gray-700 mt-1">{{ related.english_term }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Actions -->
+    <div class="mt-8 flex justify-center space-x-4">
+        <a href="{{ url_for('contribute') }}?term_id={{ term.id }}" 
+           class="px-6 py-2 border border-teal-600 text-teal-600 rounded-lg hover:bg-teal-50 transition">
+            Suggest Correction
+        </a>
+        <button onclick="copyTermInfo()" 
+                class="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition">
+            Copy Citation
+        </button>
+    </div>
+</div>
+
+<script>
+function copyTermInfo() {
+    const text = `{{ term.chinese_simplified }} ({{ term.pinyin }}) - {{ term.english_term }}. TCM Termbase.`;
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Citation copied to clipboard!');
+    });
+}
+</script>
+{% endblock %}
