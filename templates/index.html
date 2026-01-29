@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-gradient-to-b from-teal-700 to-teal-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-4">Traditional Chinese Medicine Terminology Database</h1>
+            <p class="text-xl text-teal-100 mb-2 chinese-text">中医术语数据库</p>
+            <p class="text-teal-200 mb-8">Professional bilingual termbase for researchers, translators, and practitioners</p>
+            
+            <!-- Search Box -->
+            <div class="max-w-2xl mx-auto">
+                <form action="{{ url_for('search') }}" method="GET" class="relative">
+                    <input type="text" 
+                           name="q" 
+                           placeholder="Search in Chinese, Pinyin, or English..."
+                           class="w-full px-6 py-4 rounded-lg text-gray-900 text-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-teal-300"
+                           autocomplete="off"
+                           id="search-input">
+                    <button type="submit" class="absolute right-2 top-2 bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">
+                        Search
+                    </button>
+                </form>
+                <div id="search-suggestions" class="hidden absolute w-full max-w-2xl bg-white rounded-lg shadow-lg mt-1 text-left z-50"></div>
+                <p class="text-teal-200 text-sm mt-3">
+                    Examples: 气 | qi | vital energy | 针灸 | acupuncture
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
+    <div class="bg-white rounded-lg shadow-lg p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="text-center">
+            <p class="text-3xl font-bold text-teal-700">{{ total_terms }}</p>
+            <p class="text-gray-600">Total Terms</p>
+        </div>
+        <div class="text-center">
+            <p class="text-3xl font-bold text-teal-700">{{ categories|length }}</p>
+            <p class="text-gray-600">Categories</p>
+        </div>
+        <div class="text-center">
+            <p class="text-3xl font-bold text-teal-700">2</p>
+            <p class="text-gray-600">Languages</p>
+        </div>
+        <div class="text-center">
+            <p class="text-3xl font-bold text-teal-700">WHO</p>
+            <p class="text-gray-600">Standard Terms</p>
+        </div>
+    </div>
+</div>
+
+<!-- Categories -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Browse by Category</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {% for category in categories %}
+        <a href="{{ url_for('browse', category=category.id) }}" 
+           class="bg-white p-6 rounded-lg shadow hover:shadow-md transition border border-gray-100 hover:border-teal-200">
+            <h3 class="font-semibold text-gray-900">{{ category.name_en }}</h3>
+            <p class="text-gray-600 chinese-text">{{ category.name_zh }}</p>
+            <p class="text-sm text-gray-500 mt-2">{{ category.terms.count() }} terms</p>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Recent Terms -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Recently Added Terms</h2>
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Chinese</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Pinyin</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">English</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for term in recent_terms %}
+                <tr class="hover:bg-gray-50 cursor-pointer" onclick="window.location='{{ url_for('term_detail', term_id=term.id) }}'">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="chinese-text text-lg font-medium text-gray-900">{{ term.chinese_simplified }}</span>
+                        {% if term.who_standard %}<span class="who-badge ml-2">WHO</span>{% endif %}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-gray-600">{{ term.pinyin }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ term.english_term }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ term.category.name_en if term.category else '-' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const searchInput = document.getElementById('search-input');
+    const suggestions = document.getElementById('search-suggestions');
+    let debounceTimer;
+
+    searchInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        const query = this.value.trim();
+        
+        if (query.length < 2) {
+            suggestions.classList.add('hidden');
+            return;
+        }
+
+        debounceTimer = setTimeout(() => {
+            fetch(`/api/search?q=${encodeURIComponent(query)}&limit=5`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        suggestions.innerHTML = data.map(term => `
+                            <a href="/term/${term.id}" class="block px-4 py-3 hover:bg-gray-50 border-b last:border-b-0">
+                                <span class="chinese-text font-medium">${term.chinese_simplified}</span>
+                                <span class="text-gray-500 mx-2">${term.pinyin}</span>
+                                <span class="text-gray-700">${term.english_term}</span>
+                            </a>
+                        `).join('');
+                        suggestions.classList.remove('hidden');
+                    } else {
+                        suggestions.classList.add('hidden');
+                    }
+                });
+        }, 200);
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !suggestions.contains(e.target)) {
+            suggestions.classList.add('hidden');
+        }
+    });
+</script>
+{% endblock %}
