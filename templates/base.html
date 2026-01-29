@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TCM Terminology Database{% endblock %}</title>
+    <meta name="description" content="Professional Traditional Chinese Medicine terminology database for academic researchers and translators. Bilingual Chinese-English with full-text search.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+        }
+        .chinese-text {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .search-highlight {
+            background-color: #fef08a;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        .who-badge {
+            background-color: #0369a1;
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="{{ url_for('index') }}" class="flex items-center">
+                        <span class="text-2xl mr-2">🏥</span>
+                        <div>
+                            <span class="font-bold text-gray-900">TCM Termbase</span>
+                            <span class="text-gray-500 text-sm ml-1 hidden sm:inline">中医术语库</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="{{ url_for('browse') }}" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium">Browse</a>
+                    <a href="{{ url_for('contribute') }}" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contribute</a>
+                    <a href="{{ url_for('about') }}" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-gray-500 text-sm">
+                <p>TCM Terminology Database | 中医术语数据库</p>
+                <p class="mt-1">For academic research and professional translation</p>
+                <p class="mt-2">Terms marked with <span class="who-badge">WHO</span> follow WHO International Standard Terminologies</p>
+            </div>
+        </div>
+    </footer>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
