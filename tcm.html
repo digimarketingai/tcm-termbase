@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中醫術語庫與命理文化術語翻譯教學 | TCM & Fortune-Telling Terminology Translation</title>
+    <style>
+        :root {
+            --primary: #8B0000;
+            --secondary: #D4AF37;
+            --accent: #2F4F4F;
+            --bg-light: #FDF5E6;
+            --bg-dark: #1a1a2e;
+            --text-dark: #333;
+            --text-light: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif TC', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #FDF5E6 0%, #F5DEB3 100%);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #4a0000 100%);
+            color: var(--text-light);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "☯";
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header h2 {
+            font-size: 1.3em;
+            font-weight: normal;
+            color: var(--secondary);
+        }
+        
+        .nav {
+            background: var(--accent);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+        
+        .nav a:hover {
+            background: var(--secondary);
+            color: var(--text-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .section h2 {
+            color: var(--primary);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h3 {
+            color: var(--accent);
+            font-size: 1.4em;
+            margin: 25px 0 15px;
+        }
+        
+        .section h4 {
+            color: var(--primary);
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+        }
+        
+        .bilingual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .bilingual {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        .zh-text {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe4e4 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #ffcccc;
+        }
+        
+        .en-text {
+            background: linear-gradient(135deg, #f5f5ff 0%, #e4e4ff 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #ccccff;
+        }
+        
+        .zh-text::before {
+            content: "中文 Chinese";
+            display: block;
+            font-size: 0.8em;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .en-text::before {
+            content: "English 英文";
+            display: block;
+            font-size: 0.8em;
+            color: #4a4a8a;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        tr:hover {
+            background: #fff3cd;
+        }
+        
+        .funny-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            border: 2px dashed #ffc107;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .funny-box h4 {
+            color: #856404;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .funny-box h4::before {
+            content: "😂";
+            font-size: 1.5em;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border-left: 5px solid #17a2b8;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+        
+        .face-diagram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .face-part {
+            background: white;
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .face-part:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .face-part .icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .face-part h5 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .term-highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #ffec8b 100%);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 15px 0;
+        }
+        
+        .code-block .comment {
+            color: #6272a4;
+        }
+        
+        .code-block .keyword {
+            color: #ff79c6;
+        }
+        
+        .code-block .string {
+            color: #f1fa8c;
+        }
+        
+        .palm-reading {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .palm-line {
+            background: linear-gradient(135deg, #ffe4c4 0%, #ffdab9 100%);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #deb887;
+        }
+        
+        .palm-line h5 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .activity-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .activity-box h4 {
+            color: #2e7d32;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .activity-box h4::before {
+            content: "🎯";
+            font-size: 1.3em;
+        }
+        
+        .quote {
+            font-style: italic;
+            border-left: 4px solid var(--secondary);
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #555;
+        }
+        
+        .reference-list {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .reference-list ol {
+            padding-left: 25px;
+        }
+        
+        .reference-list li {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        .five-elements {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .five-elements {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .element-card {
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .element-wood { background: linear-gradient(135deg, #228b22 0%, #32cd32 100%); }
+        .element-fire { background: linear-gradient(135deg, #dc143c 0%, #ff6347 100%); }
+        .element-earth { background: linear-gradient(135deg, #daa520 0%, #ffd700 100%); color: #333; }
+        .element-metal { background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%); color: #333; }
+        .element-water { background: linear-gradient(135deg, #000080 0%, #4169e1 100%); }
+        
+        .element-card .icon {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: var(--accent);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .footer a {
+            color: var(--secondary);
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .toc h3 {
+            margin-bottom: 15px;
+        }
+        
+        .toc ol {
+            padding-left: 25px;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .parallel-text {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .parallel-text h4 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .text-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        @media (max-width: 768px) {
+            .text-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .text-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .badge-tcm { background: #28a745; color: white; }
+        .badge-fortune { background: #6f42c1; color: white; }
+        .badge-face { background: #fd7e14; color: white; }
+        .badge-palm { background: #20c997; color: white; }
+        
+        .characteristic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .char-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .char-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .char-card-header {
+            padding: 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .char-wealth { background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); }
+        .char-wisdom { background: linear-gradient(135deg, #4169e1 0%, #1e90ff 100%); }
+        .char-marriage { background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%); }
+        .char-health { background: linear-gradient(135deg, #32cd32 0%, #228b22 100%); }
+        .char-career { background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%); }
+        .char-character { background: linear-gradient(135deg, #9370db 0%, #8a2be2 100%); }
+        
+        .char-card-body {
+            padding: 20px;
+        }
+        
+        .char-card-body p {
+            margin-bottom: 10px;
+        }
+        
+        .term-pair {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        
+        .term-zh {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .term-en {
+            color: var(--accent);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>中醫術語庫與命理文化術語翻譯教學設計</h1>
+        <h2>TCM Terminology Database and Fortune-Telling Cultural Terminology Translation</h2>
+        <p style="margin-top: 20px; opacity: 0.9;">翻譯研究所研究生課程 | Postgraduate Translation Studies Course</p>
+    </header>
+    
+    <nav class="nav">
+        <ul>
+            <li><a href="#intro">課程導論</a></li>
+            <li><a href="#history">歷史脈絡</a></li>
+            <li><a href="#tcm-text">中醫文本</a></li>
+            <li><a href="#parallel">平行文本</a></li>
+            <li><a href="#mistranslation">趣味誤譯</a></li>
+            <li><a href="#face-reading">面相解讀</a></li>
+            <li><a href="#palm-reading">手相解讀</a></li>
+            <li><a href="#fortune">命理風水</a></li>
+            <li><a href="#termify">Termify實作</a></li>
+            <li><a href="#resources">線上資源</a></li>
+            <li><a href="#references">參考文獻</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- 目錄 -->
+        <div class="toc">
+            <h3>📚 目錄 Table of Contents</h3>
+            <ol>
+                <li><a href="#intro">課程導論與目標 / Introduction and Objectives</a></li>
+                <li><a href="#history">中醫翻譯的歷史脈絡 / Historical Context of TCM Translation</a></li>
+                <li><a href="#tcm-text">中醫文本特色與翻譯挑戰 / TCM Text Features and Translation Challenges</a></li>
+                <li><a href="#parallel">雙語平行文本示例 / Bilingual Parallel Text Examples</a></li>
+                <li><a href="#mistranslation">趣味誤譯案例 / Amusing Translation Errors</a></li>
+                <li><a href="#face-reading">面相學詳解與術語翻譯 / Face Reading Analysis and Terminology</a></li>
+                <li><a href="#palm-reading">手相學詳解與術語翻譯 / Palm Reading Analysis and Terminology</a></li>
+                <li><a href="#fortune">命理風水術語 / Fortune-Telling and Feng Shui Terminology</a></li>
+                <li><a href="#termify">Termify 實作教學 / Hands-On with Termify</a></li>
+                <li><a href="#resources">線上術語資源 / Online Terminology Resources</a></li>
+                <li><a href="#references">參考文獻 / References</a></li>
+            </ol>
+        </div>
+        
+        <!-- 第一部分：導論 -->
+        <section id="intro" class="section">
+            <h2>📖 第一部分：課程導論與目標 / Part 1: Introduction and Objectives</h2>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p>本課程旨在引導翻譯研究所學生建立中醫藥術語庫，並延伸至中國傳統命理文化術語的翻譯與管理。中醫與命理風水同根同源，皆以陰陽五行為理論基礎，學習這些術語的翻譯不僅能提升專業能力，更能深入理解中華文化的精髓。</p>
+                    <br>
+                    <p>課程將結合理論講授與實際操作，使用 Termify 工具從雙語平行文本中提取術語，建立可搜索的網頁版術語庫，為未來從事專業翻譯工作奠定堅實基礎。</p>
+                </div>
+                <div class="en-text">
+                    <p>This course guides postgraduate translation students in building a Traditional Chinese Medicine terminology database, extending to Chinese traditional fortune-telling cultural terminology translation and management. TCM and fortune-telling/Feng Shui share the same roots, both based on Yin-Yang and Five Elements theory. Learning to translate these terms not only enhances professional competence but also deepens understanding of Chinese cultural essence.</p>
+                    <br>
+                    <p>The course combines theoretical instruction with hands-on practice, using Termify to extract terms from bilingual parallel texts and build a searchable web-based terminology database, laying a solid foundation for future professional translation work.</p>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <h4>💡 為何這個課程有意義？Why is this course meaningful?</h4>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li>WHO於2022年發布國際標準中醫術語，收錄3,387個標準術語</li>
+                    <li>中醫國際化發展需要統一、規範的術語標準</li>
+                    <li>現有翻譯標準存在不一致問題，需要專業人才解決</li>
+                    <li>命理文化作為文化翻譯的重要組成部分，市場需求日增</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 第二部分：歷史脈絡 -->
+        <section id="history" class="section">
+            <h2>📜 第二部分：中醫翻譯的歷史脈絡 / Part 2: Historical Context</h2>
+            
+            <h3>2.1 早期傳播時期（17-19世紀）/ Early Transmission Period</h3>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p>中醫西傳的故事始於1688年，當時法國國王路易十四派遣五位耶穌會傳教士前往中國。這些傳教士不僅傳播宗教，也將中國醫學知識帶回歐洲。波蘭傳教士卜彌格（Michael Boym）於1656年出版《中國植物志》，開創中藥西傳之先河。</p>
+                    <br>
+                    <p>然而，早期翻譯存在諸多問題。由於文化差異和專業知識不足，許多翻譯不準確或不完整，導致西方對中醫概念產生誤解。例如，美國醫學史家 Ilza Veith 在1949年翻譯《黃帝內經》時，將「脾」譯為「stomach」（胃），將「經絡」譯為「arteries」（動脈），造成嚴重的概念混淆。</p>
+                </div>
+                <div class="en-text">
+                    <p>The story of Chinese medicine's westward transmission began in 1688 when Louis XIV of France sent five Jesuit missionaries to China. These missionaries not only spread religion but also brought Chinese medical knowledge back to Europe. Polish missionary Michael Boym published "Flora Sinensis" in 1656, pioneering the westward transmission of Chinese medicinals.</p>
+                    <br>
+                    <p>However, early translations had numerous problems. Due to cultural differences and lack of professional knowledge, many translations were inaccurate or incomplete, leading to Western misunderstandings of TCM concepts. For example, American medical historian Ilza Veith, in her 1949 translation of "Yellow Emperor's Canon of Internal Medicine," translated "脾" (Spleen in TCM) as "stomach" and "經絡" (meridians) as "arteries," causing serious conceptual confusion.</p>
+                </div>
+            </div>
+            
+            <h3>2.2 標準化研究時期（20世紀至今）/ Standardization Period</h3>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p>中醫術語翻譯的發展可分為三個階段：個人自由翻譯時期、國家組織時期、國際合作時期。從早期不符合時代需求的翻譯方法，逐步發展為注重文化內涵與專業參照的翻譯方法。</p>
+                    <br>
+                    <p>目前有三部權威的國際標準：2007年WHO西太區標準（收錄3,543個術語）、2008年世界中醫藥學會聯合會標準（收錄6,526個術語）、以及2022年WHO國際標準中醫術語（收錄3,387個術語）。</p>
+                </div>
+                <div class="en-text">
+                    <p>The development of TCM terminology translation can be divided into three stages: individual free translation period, national organization period, and international cooperation period. From early translation methods that did not meet contemporary needs, it gradually developed into methods emphasizing cultural connotation and professional reference.</p>
+                    <br>
+                    <p>Currently, there are three authoritative international standards: the 2007 WHO Western Pacific Region standard (3,543 terms), the 2008 World Federation of Chinese Medicine Societies standard (6,526 terms), and the 2022 WHO International Standard TCM Terminologies (3,387 terms).</p>
+                </div>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>標準名稱 / Standard Name</th>
+                    <th>發布年份 / Year</th>
+                    <th>術語數量 / Terms</th>
+                    <th>發布機構 / Organization</th>
+                </tr>
+                <tr>
+                    <td>WHO Western Pacific Region Standard</td>
+                    <td>2007</td>
+                    <td>3,543</td>
+                    <td>WHO WPRO</td>
+                </tr>
+                <tr>
+                    <td>WFCMS International Standard Nomenclature</td>
+                    <td>2008</td>
+                    <td>6,526</td>
+                    <td>世界中醫藥學會聯合會</td>
+                </tr>
+                <tr>
+                    <td>WHO IST on TCM</td>
+                    <td>2022</td>
+                    <td>3,387</td>
+                    <td>WHO</td>
+                </tr>
+            </table>
+        </section>
+        
+        <!-- 第三部分：中醫文本特色 -->
+        <section id="tcm-text" class="section">
+            <h2>📝 第三部分：中醫文本特色與翻譯挑戰 / Part 3: TCM Text Features</h2>
+            
+            <h3>3.1 中醫術語的獨特性 / Uniqueness of TCM Terminology</h3>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p>中醫作為中華文化遺產的重要組成部分，包含許多在西方語言中找不到直接對應的術語，如「氣」和「肝火旺」等概念。這些術語的翻譯不僅僅是語言轉換，更需要深入理解其文化背景和醫學哲學。</p>
+                    <br>
+                    <p>中醫術語的特點包括：隱喻性強（如「心火」「腎水」）、文化負載重（如「陰陽」「五行」）、功能性概念（與西醫解剖學概念不同）、以及整體觀念（強調人體與自然的統一）。</p>
+                </div>
+                <div class="en-text">
+                    <p>TCM, as an integral part of Chinese cultural heritage, includes terms like "Qi" and "gan huo wang" (liver fire excess) that lack direct equivalents in Western languages. Translating these terms goes beyond mere linguistic conversion, demanding a deep understanding of cultural context and medical philosophy.</p>
+                    <br>
+                    <p>Characteristics of TCM terminology include: strong metaphorical nature (e.g., "heart fire," "kidney water"), heavy cultural loading (e.g., "Yin-Yang," "Five Elements"), functional concepts (different from Western anatomical concepts), and holistic perspective (emphasizing unity between human body and nature).</p>
+                </div>
+            </div>
+            
+            <h3>3.2 常見翻譯策略 / Common Translation Strategies</h3>
+            
+            <table>
+                <tr>
+                    <th>策略 / Strategy</th>
+                    <th>說明 / Description</th>
+                    <th>例子 / Example</th>
+                    <th>優缺點 / Pros & Cons</th>
+                </tr>
+                <tr>
+                    <td>直譯 Literal Translation</td>
+                    <td>逐字翻譯原文</td>
+                    <td>風火眼 → Wind-fire eye</td>
+                    <td>保留文化意涵，但可能令讀者困惑</td>
+                </tr>
+                <tr>
+                    <td>意譯 Semantic Translation</td>
+                    <td>翻譯概念含義</td>
+                    <td>風火眼 → Acute conjunctivitis</td>
+                    <td>易於理解，但失去中醫特色</td>
+                </tr>
+                <tr>
+                    <td>音譯 Transliteration</td>
+                    <td>使用拼音</td>
+                    <td>氣 → Qi</td>
+                    <td>保留原汁原味，需要額外解釋</td>
+                </tr>
+                <tr>
+                    <td>音譯+意譯 Combined</td>
+                    <td>拼音加解釋</td>
+                    <td>氣 → Qi (vital energy)</td>
+                    <td>兼顧文化保留與理解</td>
+                </tr>
+            </table>
+            
+            <div class="info-box">
+                <h4>📚 李照國教授的五大翻譯原則 / Professor Li Zhaoguo's Five Principles</h4>
+                <ol style="margin-top: 10px; padding-left: 20px;">
+                    <li><strong>自然性 Naturalness</strong>：優先考慮目標語言的習慣表達</li>
+                    <li><strong>簡潔性 Conciseness</strong>：避免冗長或繞口的譯法</li>
+                    <li><strong>文化特異性 Cultural Specificity</strong>：保留中醫的本體特徵</li>
+                    <li><strong>可回譯性 Retranslatability</strong>：確保雙向概念對應</li>
+                    <li><strong>規範性 Prescriptivism</strong>：倡導規範導向而非描述導向</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- 第四部分：雙語平行文本 -->
+        <section id="parallel" class="section">
+            <h2>📄 第四部分：雙語平行文本示例 / Part 4: Bilingual Parallel Text Examples</h2>
+            
+            <div class="info-box">
+                <p>以下為課堂術語提取練習所使用的雙語平行文本，涵蓋中醫基礎理論、診斷方法、治療原則等內容，可直接輸入 Termify 進行術語提取。</p>
+            </div>
+            
+            <h3>4.1 中醫基礎理論 / TCM Fundamental Theories</h3>
+            
+            <div class="parallel-text">
+                <h4>🔹 平行文本一：陰陽五行理論 / Yin-Yang and Five Elements Theory</h4>
+                
+                <div class="text-row">
+                    <div class="zh-text" style="background: #fff;">
+                        <p>中醫學的理論體系是以陰陽五行學說為哲學基礎，以整體觀念為指導思想，以臟腑經絡的生理病理為核心，以辨證論治為診療特點的獨特醫學理論體系。陰陽學說認為，宇宙間一切事物都包含著陰與陽相互對立又相互依存的兩個方面，陰陽的對立統一運動是宇宙間一切事物產生、發展、變化和消亡的根本原因。</p>
+                        <br>
+                        <p>五行學說則認為，木、火、土、金、水是構成宇宙的五種基本物質，它們之間存在著相生相剋的關係。相生是指一種物質對另一種物質具有促進、助長和資生的作用，其順序是木生火、火生土、土生金、金生水、水生木。相剋是指一種物質對另一種物質具有抑制、約束和削弱的作用，其順序是木剋土、土剋水、水剋火、火剋金、金剋木。</p>
+                        <br>
+                        <p>在中醫學中，五行與人體五臟相對應：肝屬木，心屬火，脾屬土，肺屬金，腎屬水。這種對應關係不僅用於解釋臟腑之間的生理聯繫，也用於分析病理變化和指導臨床治療。例如，「肝木乘脾土」解釋了情志不暢導致消化功能紊亂的病理機制，「滋水涵木」則是通過補腎陰來治療肝陰不足的治療方法。</p>
+                    </div>
+                    <div class="en-text" style="background: #fff;">
+                        <p>The theoretical system of Traditional Chinese Medicine is a unique medical theory with Yin-Yang and Five Elements theory as its philosophical foundation, the holistic concept as its guiding ideology, the physiology and pathology of Zang-Fu organs and meridians as its core, and pattern differentiation and treatment as its diagnostic and therapeutic characteristics. Yin-Yang theory holds that everything in the universe contains two aspects—Yin and Yang—that are mutually opposing yet interdependent, and that the contradictory movement of Yin and Yang is the fundamental cause of the generation, development, transformation, and extinction of all things.</p>
+                        <br>
+                        <p>Five Elements theory holds that Wood, Fire, Earth, Metal, and Water are the five basic substances constituting the universe, among which exist relationships of mutual generation and mutual restriction. Mutual generation refers to one substance having the function of promoting, fostering, and nourishing another, in the sequence: Wood generates Fire, Fire generates Earth, Earth generates Metal, Metal generates Water, Water generates Wood. Mutual restriction refers to one substance having the function of inhibiting, constraining, and weakening another, in the sequence: Wood restricts Earth, Earth restricts Water, Water restricts Fire, Fire restricts Metal, Metal restricts Wood.</p>
+                        <br>
+                        <p>In TCM, the Five Elements correspond to the five Zang organs: Liver pertains to Wood, Heart pertains to Fire, Spleen pertains to Earth, Lung pertains to Metal, Kidney pertains to Water. This correspondence is used not only to explain physiological connections among Zang-Fu organs but also to analyze pathological changes and guide clinical treatment. For example, "Liver Wood overacting on Spleen Earth" explains the pathological mechanism of emotional disturbance causing digestive dysfunction, while "nourishing Water to moisten Wood" is a treatment method of tonifying Kidney Yin to treat Liver Yin deficiency.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parallel-text">
+                <h4>🔹 平行文本二：氣血津液理論 / Qi, Blood, and Body Fluids Theory</h4>
+                
+                <div class="text-row">
+                    <div class="zh-text" style="background: #fff;">
+                        <p>氣、血、津液是構成人體和維持人體生命活動的基本物質。氣是人體內活力很強、運行不息的極精微物質，是構成人體和維持人體生命活動的基本物質之一。根據氣的來源、分布和功能的不同，可分為元氣、宗氣、營氣和衛氣四種。元氣稟受於父母，是人體最根本、最重要的氣，藏於腎中，通過三焦布散全身。宗氣積於胸中，由肺吸入的清氣與脾胃運化的水谷精氣結合而成。營氣運行於脈中，是血液的重要組成部分。衛氣運行於脈外，有溫養臟腑、潤澤皮毛、調控腠理開合的功能。</p>
+                        <br>
+                        <p>血是循行於脈中、富有營養的紅色液體物質。血的生成主要來源於脾胃運化的水谷精微，在心肺的作用下化生為血。血的功能主要是營養和滋潤全身臟腑組織。津液是人體一切正常水液的總稱，包括各臟腑組織器官的內在液體及其正常分泌物。津與液雖然同源，但有清稀與稠厚之別：津質清稀，流動性大，布散於體表皮膚、肌肉和孔竅，起滋潤作用；液質稠厚，流動性小，灌注於骨節、臟腑、腦、髓等處，起濡養作用。</p>
+                        <br>
+                        <p>氣血津液之間存在著密切的聯繫。氣能生血、行血、攝血，血能載氣、養氣；氣能生津、行津、攝津，津能載氣；津血同源，皆由水谷精微所化生。因此，在病理上，氣虛可致血虛，血虛可致氣虛；氣滯可致血瘀，血瘀可致氣滯；津虧可致血燥，血燥可致津虧。臨床治療時，補氣與補血、理氣與活血、生津與養血常常相互配合。</p>
+                    </div>
+                    <div class="en-text" style="background: #fff;">
+                        <p>Qi, Blood, and Body Fluids are the basic substances that constitute the human body and maintain its life activities. Qi is an extremely refined substance with great vitality that circulates ceaselessly within the body, being one of the basic substances that constitute and maintain human life activities. Based on different origins, distributions, and functions, Qi can be divided into four types: Yuan Qi (Primordial Qi), Zong Qi (Pectoral Qi), Ying Qi (Nutritive Qi), and Wei Qi (Defensive Qi). Yuan Qi is inherited from parents, being the most fundamental and important Qi of the body, stored in the Kidney and distributed throughout the body via the Triple Jiao. Zong Qi accumulates in the chest, formed by the combination of fresh air inhaled by the Lung and food essence transformed by the Spleen and Stomach. Ying Qi circulates within the vessels and is an important component of blood. Wei Qi circulates outside the vessels, functioning to warm and nourish Zang-Fu organs, moisten skin and body hair, and regulate the opening and closing of pores.</p>
+                        <br>
+                        <p>Blood is a red, nutrient-rich liquid substance that circulates within the vessels. Blood formation mainly derives from food essence transformed by the Spleen and Stomach, which transforms into Blood under the action of Heart and Lung. The main function of Blood is to nourish and moisten all Zang-Fu organs and tissues. Body Fluids is a general term for all normal liquids in the body, including internal fluids and normal secretions of all Zang-Fu organs and tissues. Although Jin and Ye share the same source, they differ in consistency: Jin is clear and thin with high fluidity, distributed to body surface skin, muscles, and orifices for moistening; Ye is thick and viscous with low fluidity, infused into joints, Zang-Fu organs, brain, and marrow for nourishment.</p>
+                        <br>
+                        <p>Close relationships exist among Qi, Blood, and Body Fluids. Qi can generate Blood, move Blood, and control Blood, while Blood can carry Qi and nourish Qi. Qi can generate fluids, move fluids, and control fluids, while fluids can carry Qi. Fluids and Blood share the same source, both transformed from food essence. Therefore, pathologically, Qi deficiency can cause Blood deficiency, and Blood deficiency can cause Qi deficiency; Qi stagnation can cause Blood stasis, and Blood stasis can cause Qi stagnation; fluid insufficiency can cause Blood dryness, and Blood dryness can cause fluid insufficiency. In clinical treatment, supplementing Qi and supplementing Blood, regulating Qi and activating Blood, generating fluids and nourishing Blood are often combined.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parallel-text">
+                <h4>🔹 平行文本三：四診方法 / Four Diagnostic Methods</h4>
+                
+                <div class="text-row">
+                    <div class="zh-text" style="background: #fff;">
+                        <p>中醫診斷疾病的方法主要有望、聞、問、切四種，合稱「四診」。望診是醫生運用視覺觀察病人的神、色、形、態、舌象以及排出物等，以了解病情的方法。其中舌診尤為重要，通過觀察舌質和舌苔的變化來判斷臟腑的虛實、氣血的盛衰、病邪的性質和病勢的進退。舌質淡白多為氣血兩虛，舌質紅絳多為熱盛，舌苔白膩多為寒濕，舌苔黃膩多為濕熱。</p>
+                        <br>
+                        <p>聞診包括聽聲音和嗅氣味兩個方面。聽聲音是指聽病人的語言、呼吸、咳嗽、嘔吐、呃逆、腸鳴等聲音；嗅氣味是指嗅病人身體及其排出物的氣味。問診是醫生通過詢問病人或陪診者，了解病情的方法。問診的內容包括問寒熱、問汗、問頭身、問二便、問飲食、問胸腹、問耳目、問睡眠、問舊病、問病因等。明代醫家張景岳編有「十問歌」，至今仍是問診的重要參考。</p>
+                        <br>
+                        <p>切診包括脈診和按診。脈診是醫生用手指按壓病人的動脈，體察脈象變化以診察疾病的方法。最常用的是寸口脈診法，即在手腕橈動脈處進行診察，分為寸、關、尺三部。脈象的要素包括脈位、脈率、脈律、脈形、脈力等。常見的脈象有二十八種，如浮脈、沉脈、遲脈、數脈、虛脈、實脈、滑脈、澀脈等。按診是醫生用手觸摸、按壓病人體表某些部位，以了解病情的方法，包括按胸腹、按手足、按腧穴等。</p>
+                    </div>
+                    <div class="en-text" style="background: #fff;">
+                        <p>The main methods of TCM diagnosis are Inspection (Wang), Auscultation-Olfaction (Wen), Inquiry (Wen), and Palpation (Qie), collectively called the "Four Diagnostic Methods." Inspection involves the practitioner using visual observation to examine the patient's spirit, complexion, physical form, posture, tongue appearance, and excreta to understand the condition. Tongue diagnosis is particularly important, using observation of tongue body and coating changes to determine Zang-Fu deficiency or excess, Qi and Blood abundance or decline, pathogen nature, and disease progression. Pale tongue body usually indicates Qi and Blood deficiency; red or crimson tongue body indicates heat excess; white greasy coating indicates cold-dampness; yellow greasy coating indicates damp-heat.</p>
+                        <br>
+                        <p>Auscultation-Olfaction includes listening to sounds and smelling odors. Listening involves hearing the patient's speech, breathing, coughing, vomiting, hiccups, bowel sounds, etc. Smelling involves detecting odors from the patient's body and excreta. Inquiry is the method of understanding the condition through questioning the patient or accompanying persons. Inquiry content includes asking about cold and heat, sweating, head and body, urination and defecation, diet, chest and abdomen, ears and eyes, sleep, previous illnesses, and disease causes. Ming Dynasty physician Zhang Jingyue compiled the "Ten Questions Song," which remains an important reference for inquiry today.</p>
+                        <br>
+                        <p>Palpation includes pulse diagnosis and physical palpation. Pulse diagnosis involves the practitioner pressing the patient's artery with fingers to perceive pulse changes for disease diagnosis. The most commonly used method is Cun-Kou pulse diagnosis, performed at the radial artery of the wrist, divided into three positions: Cun, Guan, and Chi. Pulse elements include pulse position, rate, rhythm, shape, and strength. There are twenty-eight common pulse patterns, such as floating pulse, deep pulse, slow pulse, rapid pulse, deficient pulse, excess pulse, slippery pulse, choppy pulse, etc. Physical palpation involves the practitioner touching and pressing certain areas of the patient's body surface to understand the condition, including palpating the chest and abdomen, hands and feet, and acupoints.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parallel-text">
+                <h4>🔹 平行文本四：面相與中醫望診 / Face Reading and TCM Inspection</h4>
+                
+                <div class="text-row">
+                    <div class="zh-text" style="background: #fff;">
+                        <p>面相學與中醫望診有著密切的關係，兩者都通過觀察面部特徵來判斷人的健康狀況和運勢。在中醫理論中，面部不同區域與五臟相對應：額頭屬心，鼻屬脾，左頰屬肝，右頰屬肺，下頦屬腎。面色的變化可以反映臟腑的病變：面色蒼白多為氣血不足或陽虛，面色潮紅多為陰虛火旺，面色萎黃多為脾虛濕盛，面色青紫多為氣滯血瘀，面色晦暗多為腎精虧損。</p>
+                        <br>
+                        <p>在傳統面相學中，面部被劃分為不同區域，稱為「十二宮」，包括命宮（印堂）、財帛宮（鼻頭）、兄弟宮（眉毛）、夫妻宮（眼尾）、子女宮（眼下淚堂）、奴僕宮（面頰下方）、遷移宮（額角）、疾厄宮（山根）、官祿宮（額頭中央）、田宅宮（眼眉之間）、福德宮（眉尾上方）、父母宮（額頭兩側）。每個宮位的氣色、紋理、豐滿程度都與人的不同運勢相關聯。</p>
+                        <br>
+                        <p>天庭飽滿者，早年運勢順遂，聰明伶俐；印堂開闊明亮者，心胸寬廣，貴人運旺；山根高挺者，意志堅強，祖業豐厚；鼻頭圓潤有肉者，財運亨通，理財有道；人中深長者，壽元綿長，子孫繁茂；地閣方圓者，晚年福壽雙全，家業穩固。反之，印堂發黑或有橫紋者，近期運勢不佳，宜小心謹慎；山根低陷或有橫紋者，健康欠佳，婚姻不順；法令紋過早出現者，辛勞操勞之相。</p>
+                    </div>
+                    <div class="en-text" style="background: #fff;">
+                        <p>Physiognomy (face reading) has a close relationship with TCM inspection, both judging a person's health and fortune through observing facial features. In TCM theory, different facial regions correspond to the Five Zang organs: the forehead pertains to the Heart, the nose pertains to the Spleen, the left cheek pertains to the Liver, the right cheek pertains to the Lung, and the chin pertains to the Kidney. Changes in facial complexion can reflect Zang-Fu pathology: pale complexion usually indicates Qi and Blood deficiency or Yang deficiency, flushed complexion indicates Yin deficiency with fire excess, sallow complexion indicates Spleen deficiency with dampness, purple-blue complexion indicates Qi stagnation and Blood stasis, dull complexion indicates Kidney essence depletion.</p>
+                        <br>
+                        <p>In traditional physiognomy, the face is divided into different regions called the "Twelve Palaces," including the Life Palace (glabella), Wealth Palace (nose tip), Siblings Palace (eyebrows), Marriage Palace (outer eye corners), Children Palace (under-eye area), Servants Palace (lower cheeks), Migration Palace (temple area), Illness Palace (nose bridge root), Career Palace (central forehead), Property Palace (between eyebrows), Fortune Palace (above eyebrow tails), and Parents Palace (forehead sides). The complexion, texture, and fullness of each palace are associated with different aspects of a person's fortune.</p>
+                        <br>
+                        <p>Those with a full Heavenly Court (forehead) enjoy smooth fortune in early life and are intelligent; those with a wide and bright Seal Hall (glabella) are broad-minded with strong benefactor luck; those with a high Mountain Root (nose bridge) have strong willpower and rich ancestral heritage; those with a round and fleshy nose tip enjoy prosperous wealth fortune and financial acumen; those with a deep and long Philtrum have longevity and flourishing descendants; those with a square and round Earth Cabinet (chin) enjoy both fortune and longevity in later life with stable family business. Conversely, those with a dark Seal Hall or horizontal lines face poor fortune recently and should be cautious; those with a low Mountain Root or horizontal lines have poor health and marital difficulties; those with premature Decree Lines (nasolabial folds) indicate a life of toil and labor.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parallel-text">
+                <h4>🔹 平行文本五：手相與健康 / Palm Reading and Health</h4>
+                
+                <div class="text-row">
+                    <div class="zh-text" style="background: #fff;">
+                        <p>手相學不僅可以預測人的命運，也與中醫診斷有著密切的聯繫。中醫認為，手掌的顏色、紋理、溫度和濕度都可以反映人體的健康狀況。手掌紅潤者，氣血充足；手掌蒼白者，氣血虛弱；手掌發黃者，脾胃虛弱或肝膽疾病；手掌青紫者，氣滯血瘀或心肺功能不佳。手掌溫暖者，陽氣充足；手掌冰冷者，陽虛或氣血不通。</p>
+                        <br>
+                        <p>傳統手相學中的三大主線——生命線、智慧線、感情線——也可以從健康角度進行解讀。生命線圍繞金星丘（拇指根部隆起），其長度、深淺、弧度與人的體質、精力和生命力相關。生命線深長而清晰者，體質強健，精力充沛；生命線淺短或斷裂者，可能體質較弱或曾有重大疾病。智慧線從食指根部延伸至手掌，與人的思維能力、神經系統健康相關。感情線位於手掌上方，與心臟功能、情緒健康有關。</p>
+                        <br>
+                        <p>此外，手相中還有健康線（從小指根部斜向手腕）、太陽線（無名指下方縱線）等輔助線。健康線若清晰明顯，反而表示健康有問題，因為健康人通常沒有明顯的健康線。手指的長短、形狀也有特定含義：拇指發達者，意志力強；食指長者，有領導才能；中指長者，謹慎穩重；無名指長者，有藝術天賦；小指長者，善於溝通。斷掌（智慧線與感情線合為一線）在傳統觀念中被認為是性格剛強、做事果斷的象徵，但在現代遺傳學中稱為「猿線」（Simian line）。</p>
+                    </div>
+                    <div class="en-text" style="background: #fff;">
+                        <p>Palmistry can not only predict one's destiny but also has close connections with TCM diagnosis. TCM believes that the color, texture, temperature, and moisture of the palm can all reflect the body's health condition. A rosy palm indicates sufficient Qi and Blood; a pale palm indicates Qi and Blood deficiency; a yellow palm indicates Spleen and Stomach weakness or liver and gallbladder disease; a purple-blue palm indicates Qi stagnation and Blood stasis or poor cardiopulmonary function. A warm palm indicates sufficient Yang Qi; a cold palm indicates Yang deficiency or poor Qi and Blood circulation.</p>
+                        <br>
+                        <p>The three main lines in traditional palmistry—the Life Line, Head Line (Wisdom Line), and Heart Line (Emotion Line)—can also be interpreted from a health perspective. The Life Line encircles the Mount of Venus (the raised area at the thumb base), with its length, depth, and curvature related to one's constitution, energy, and vitality. A deep, long, and clear Life Line indicates a strong constitution and abundant energy; a shallow, short, or broken Life Line may indicate a weaker constitution or history of serious illness. The Head Line extends from the index finger base across the palm, related to thinking ability and nervous system health. The Heart Line is located at the upper palm, related to cardiac function and emotional health.</p>
+                        <br>
+                        <p>Additionally, palmistry includes auxiliary lines such as the Health Line (diagonal from the little finger base toward the wrist) and the Sun Line (vertical line below the ring finger). Paradoxically, a clear and prominent Health Line actually indicates health problems, as healthy people usually don't have an obvious Health Line. Finger lengths and shapes also have specific meanings: a well-developed thumb indicates strong willpower; a long index finger indicates leadership ability; a long middle finger indicates caution and steadiness; a long ring finger indicates artistic talent; a long little finger indicates good communication skills. The Simian Line (where the Head Line and Heart Line merge into one) is traditionally considered a symbol of strong character and decisive action, but in modern genetics, it's called the "Simian crease."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parallel-text">
+                <h4>🔹 平行文本六：八字命理與五行養生 / Four Pillars of Destiny and Five Elements Health</h4>
+                
+                <div class="text-row">
+                    <div class="zh-text" style="background: #fff;">
+                        <p>八字命理學，又稱「四柱推命」，是根據一個人出生的年、月、日、時四個時間點，分別配以天干和地支，形成四組干支（即「四柱」），共八個字（即「八字」），以此推算人的命運和運勢。天干有十個：甲、乙、丙、丁、戊、己、庚、辛、壬、癸；地支有十二個：子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥。每個天干地支都有其對應的五行屬性：甲乙屬木，丙丁屬火，戊己屬土，庚辛屬金，壬癸屬水。</p>
+                        <br>
+                        <p>八字命理與中醫養生有著緊密的聯繫。根據一個人八字中五行的強弱，可以判斷其先天體質的特點和容易罹患的疾病。例如，八字中木旺的人，肝氣偏盛，性情急躁，容易患肝膽疾病、頭痛、眼疾；八字中火旺的人，心火偏亢，性情熱烈，容易患心腦血管疾病、失眠、口舌生瘡；八字中土弱的人，脾胃虛弱，容易患消化系統疾病；八字中金弱的人，肺氣不足，容易患呼吸系統疾病、皮膚病；八字中水弱的人，腎精虧虛，容易患泌尿生殖系統疾病、腰膝酸軟。</p>
+                        <br>
+                        <p>因此，根據八字五行的盈虧，可以制定個性化的養生方案。五行缺木者，宜多食綠色蔬菜，多接觸大自然，修身養性；五行缺火者，宜多曬太陽，保持心情愉快，適當運動；五行缺土者，宜規律飲食，多食黃色食物如小米、南瓜，調理脾胃；五行缺金者，宜多食白色食物如白蘿蔔、山藥，注意呼吸道保健；五行缺水者，宜多食黑色食物如黑豆、黑芝麻，注意補腎養精。這種結合命理與醫理的養生方法，體現了中華文化「天人合一」的整體觀念。</p>
+                    </div>
+                    <div class="en-text" style="background: #fff;">
+                        <p>BaZi (Eight Characters) destiny analysis, also called "Four Pillars of Destiny," is based on a person's birth year, month, day, and hour, each matched with Heavenly Stems and Earthly Branches to form four pairs of stem-branch combinations (the "Four Pillars"), totaling eight characters (the "Eight Characters"), used to calculate one's destiny and fortune. There are ten Heavenly Stems: Jia, Yi, Bing, Ding, Wu, Ji, Geng, Xin, Ren, Gui. There are twelve Earthly Branches: Zi, Chou, Yin, Mao, Chen, Si, Wu, Wei, Shen, You, Xu, Hai. Each Heavenly Stem and Earthly Branch has its corresponding Five Elements attribute: Jia and Yi pertain to Wood, Bing and Ding pertain to Fire, Wu and Ji pertain to Earth, Geng and Xin pertain to Metal, Ren and Gui pertain to Water.</p>
+                        <br>
+                        <p>BaZi destiny analysis has close connections with TCM health preservation. Based on the strength and weakness of Five Elements in one's BaZi, one can determine constitutional characteristics and susceptibility to certain diseases. For example, those with strong Wood in their BaZi have excessive Liver Qi, impatient temperament, and are prone to liver and gallbladder diseases, headaches, and eye ailments; those with strong Fire have excessive Heart fire, passionate temperament, and are prone to cardiovascular diseases, insomnia, and mouth ulcers; those with weak Earth have weak Spleen and Stomach, prone to digestive system diseases; those with weak Metal have insufficient Lung Qi, prone to respiratory diseases and skin problems; those with weak Water have depleted Kidney essence, prone to urogenital system diseases and weak lower back and knees.</p>
+                        <br>
+                        <p>Therefore, based on the surplus and deficiency of Five Elements in BaZi, personalized health preservation plans can be formulated. Those lacking Wood should eat more green vegetables, spend more time in nature, and cultivate inner peace. Those lacking Fire should get more sunlight, maintain a cheerful mood, and exercise appropriately. Those lacking Earth should maintain regular eating habits, eat more yellow foods like millet and pumpkin, and regulate the Spleen and Stomach. Those lacking Metal should eat more white foods like white radish and Chinese yam, and pay attention to respiratory health. Those lacking Water should eat more black foods like black beans and black sesame, and focus on tonifying the Kidney and nourishing essence. This health preservation method combining destiny analysis and medical principles embodies the Chinese cultural concept of "unity of heaven and humanity."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 第五部分：趣味誤譯 -->
+        <section id="mistranslation" class="section">
+            <h2>😂 第五部分：趣味誤譯案例 / Part 5: Amusing Translation Errors</h2>
+            
+            <div class="funny-box">
+                <h4>課堂互動：猜猜這些錯誤翻譯的原意！</h4>
+                <p>以下誤譯案例可用於課堂暖身活動，讓學生在輕鬆的氛圍中了解術語翻譯的重要性。</p>
+            </div>
+            
+            <h3>5.1 中醫術語經典誤譯 / Classic TCM Mistranslations</h3>
+            
+            <table>
+                <tr>
+                    <th>中文術語</th>
+                    <th>錯誤翻譯 ❌</th>
+                    <th>正確翻譯 ✓</th>
+                    <th>笑點分析</th>
+                </tr>
+                <tr>
+                    <td>上火</td>
+                    <td>Catch on fire / On fire 🔥</td>
+                    <td>Internal heat / Excess fire</td>
+                    <td>直譯成「著火了」，彷彿人會自燃！</td>
+                </tr>
+                <tr>
+                    <td>補腎</td>
+                    <td>Add kidney / Kidney supplement</td>
+                    <td>Tonify the Kidney</td>
+                    <td>難道是要多買一顆腎？</td>
+                </tr>
+                <tr>
+                    <td>脾</td>
+                    <td>Stomach</td>
+                    <td>Spleen (TCM concept)</td>
+                    <td>早期學者直接套用西醫概念的經典錯誤</td>
+                </tr>
+                <tr>
+                    <td>經絡</td>
+                    <td>Arteries / Vessels</td>
+                    <td>Meridians / Channels</td>
+                    <td>經絡不是血管！概念完全不同</td>
+                </tr>
+                <tr>
+                    <td>風火眼</td>
+                    <td>Wind-fire eye (字面) / Acute conjunctivitis (純西醫)</td>
+                    <td>Wind-fire eye (保留病因)</td>
+                    <td>一個太字面，一個丟失中醫特色</td>
+                </tr>
+                <tr>
+                    <td>三焦</td>
+                    <td>Three burners / Three heaters</td>
+                    <td>Triple Jiao / Triple Energizer</td>
+                    <td>不是三個爐子或暖氣！</td>
+                </tr>
+                <tr>
+                    <td>崩漏</td>
+                    <td>Collapse and leak</td>
+                    <td>Flooding and spotting / Metrorrhagia</td>
+                    <td>聽起來像房屋倒塌漏水</td>
+                </tr>
+                <tr>
+                    <td>痰飲</td>
+                    <td>Phlegm drink</td>
+                    <td>Phlegm-fluid retention</td>
+                    <td>誰會喝痰做成的飲料？</td>
+                </tr>
+                <tr>
+                    <td>走馬牙疳</td>
+                    <td>Running horse tooth malnutrition</td>
+                    <td>Gangrenous stomatitis / Noma</td>
+                    <td>馬在嘴裡跑？</td>
+                </tr>
+                <tr>
+                    <td>帶下</td>
+                    <td>Carry down</td>
+                    <td>Leukorrhea / Vaginal discharge</td>
+                    <td>直譯完全無法理解</td>
+                </tr>
+            </table>
+            
+            <h3>5.2 命理風水趣味誤譯 / Fortune-Telling Funny Mistranslations</h3>
+            
+            <table>
+                <tr>
+                    <th>中文術語</th>
+                    <th>搞笑誤譯 ❌</th>
+                    <th>正確翻譯 ✓</th>
+                    <th>笑點分析</th>
+                </tr>
+                <tr>
+                    <td>風水</td>
+                    <td>Wind-water / Wind and water</td>
+                    <td>Feng Shui / Geomancy</td>
+                    <td>已成國際通用詞，無需直譯</td>
+                </tr>
+                <tr>
+                    <td>八字</td>
+                    <td>Eight characters / 8 words</td>
+                    <td>Four Pillars of Destiny / BaZi</td>
+                    <td>「八個字」讓人摸不著頭腦</td>
+                </tr>
+                <tr>
+                    <td>紫微斗數</td>
+                    <td>Purple tiny fighting number 💜</td>
+                    <td>Zi Wei Dou Shu / Purple Star Astrology</td>
+                    <td>機器翻譯災難：紫色的微小戰鬥數字？</td>
+                </tr>
+                <tr>
+                    <td>桃花運</td>
+                    <td>Peach blossom luck / Peach flower transportation 🚚</td>
+                    <td>Romance luck / Love fortune</td>
+                    <td>桃花運輸公司？</td>
+                </tr>
+                <tr>
+                    <td>犯太歲</td>
+                    <td>Offend too old / Commit crime against old age 👴</td>
+                    <td>Conflict with Tai Sui / Offend the Year God</td>
+                    <td>冒犯老人家？</td>
+                </tr>
+                <tr>
+                    <td>本命年</td>
+                    <td>This life year / Original life year</td>
+                    <td>Zodiac year / Ben Ming year</td>
+                    <td>「這一生的年」？</td>
+                </tr>
+                <tr>
+                    <td>印堂發黑</td>
+                    <td>Printing hall turns black 🖨️</td>
+                    <td>Dark glabella (inauspicious sign)</td>
+                    <td>印刷廳變黑了？</td>
+                </tr>
+                <tr>
+                    <td>天庭飽滿</td>
+                    <td>Heavenly court is full / Heaven hall is stuffed</td>
+                    <td>Full forehead (auspicious)</td>
+                    <td>天上的法庭爆滿？</td>
+                </tr>
+                <tr>
+                    <td>斷掌</td>
+                    <td>Broken palm / Cut-off hand ✋</td>
+                    <td>Simian line / Single palmar crease</td>
+                    <td>聽起來像截肢！</td>
+                </tr>
+                <tr>
+                    <td>面相</td>
+                    <td>Face phase / Face appearance</td>
+                    <td>Physiognomy / Face reading</td>
+                    <td>「臉的階段」是什麼？</td>
+                </tr>
+                <tr>
+                    <td>陰陽眼</td>
+                    <td>Yin-yang eyes / Negative-positive eyes</td>
+                    <td>Third eye / Spiritual sight</td>
+                    <td>一正一負的眼睛？</td>
+                </tr>
+                <tr>
+                    <td>命中注定</td>
+                    <td>Hit in life is noted and decided</td>
+                    <td>Destined / Fated</td>
+                    <td>被生命擊中並被記錄和決定？</td>
+                </tr>
+                <tr>
+                    <td>算命</td>
+                    <td>Calculate life / Count destiny</td>
+                    <td>Fortune-telling / Divination</td>
+                    <td>用計算機算生命？</td>
+                </tr>
+                <tr>
+                    <td>羅盤</td>
+                    <td>Snail plate / Net plate</td>
+                    <td>Feng Shui compass / Luopan</td>
+                    <td>蝸牛盤子？</td>
+                </tr>
+                <tr>
+                    <td>貴人運</td>
+                    <td>Expensive person luck / Noble luck</td>
+                    <td>Benefactor luck / Helpful people fortune</td>
+                    <td>昂貴的人的運氣？</td>
+                </tr>
+            </table>
+            
+            <div class="activity-box">
+                <h4>課堂活動：誤譯糾錯大賽</h4>
+                <p><strong>活動規則：</strong></p>
+                <ol style="padding-left: 20px; margin-top: 10px;">
+                    <li>將學生分成若干小組</li>
+                    <li>展示以上誤譯案例（只顯示錯誤翻譯）</li>
+                    <li>各組猜測原文術語並提供正確翻譯</li>
+                    <li>解釋翻譯策略選擇的原因</li>
+                    <li>評分標準：正確識別原文（1分）+ 正確翻譯（2分）+ 解釋合理（2分）</li>
+                </ol>
+            </div>
+            
+            <h3>5.3 翻譯原則討論 / Translation Principles Discussion</h3>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <h4>從誤譯案例學習翻譯原則</h4>
+                    <p><strong>1. 避免字面直譯：</strong>「上火」不是「著火」，「補腎」不是「添加腎臟」。中醫術語往往具有隱喻性質，需要理解其深層含義。</p>
+                    <br>
+                    <p><strong>2. 保留文化特色：</strong>對於獨特的文化概念如「氣」「風水」，使用音譯加注解是較好的選擇，既保留原汁原味，又便於理解。</p>
+                    <br>
+                    <p><strong>3. 考慮目標讀者：</strong>專業醫學翻譯與科普翻譯的策略不同。前者可使用更多專業術語，後者需要更多解釋。</p>
+                    <br>
+                    <p><strong>4. 統一術語標準：</strong>參照WHO等權威機構的標準，確保術語翻譯的一致性，避免造成混亂。</p>
+                </div>
+                <div class="en-text">
+                    <h4>Learning Translation Principles from Mistranslation Cases</h4>
+                    <p><strong>1. Avoid Literal Translation:</strong> "上火" is not "catching fire," "補腎" is not "adding kidney." TCM terms often have metaphorical nature and require understanding of deeper meanings.</p>
+                    <br>
+                    <p><strong>2. Preserve Cultural Features:</strong> For unique cultural concepts like "Qi" and "Feng Shui," using transliteration with annotation is a better choice, preserving authenticity while facilitating understanding.</p>
+                    <br>
+                    <p><strong>3. Consider Target Readers:</strong> Strategies differ between professional medical translation and popular science translation. The former can use more technical terms; the latter needs more explanation.</p>
+                    <br>
+                    <p><strong>4. Unify Terminology Standards:</strong> Reference standards from authoritative bodies like WHO to ensure consistency in terminology translation and avoid confusion.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 第六部分：面相解讀 -->
+        <section id="face-reading" class="section">
+            <h2>👤 第六部分：面相學詳解與術語翻譯 / Part 6: Face Reading Analysis</h2>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p>面相學（Physiognomy）是中國傳統相術的重要組成部分，通過觀察面部特徵來推斷人的性格、運勢和健康狀況。面相學與中醫望診同根同源，都以陰陽五行理論為基礎。在翻譯面相術語時，需要考慮文化負載和目標讀者的理解程度。</p>
+                </div>
+                <div class="en-text">
+                    <p>Physiognomy is an important part of traditional Chinese divination, inferring a person's character, fortune, and health by observing facial features. Physiognomy and TCM inspection share the same roots, both based on Yin-Yang and Five Elements theory. When translating physiognomy terms, cultural loading and target reader comprehension must be considered.</p>
+                </div>
+            </div>
+            
+            <h3>6.1 面部區域術語對照 / Facial Region Terminology</h3>
+            
+            <div class="face-diagram">
+                <div class="face-part">
+                    <div class="icon">👤</div>
+                    <h5>天庭 Heavenly Court</h5>
+                    <p><strong>英譯：</strong>Heavenly Court / Upper Forehead</p>
+                    <p><strong>位置：</strong>額頭上部</p>
+                    <p><strong>相學含義：</strong>代表早年運勢（15-30歲）</p>
+                    <p><strong>中醫對應：</strong>心神狀態</p>
+                </div>
+                <div class="face-part">
+                    <div class="icon">🔮</div>
+                    <h5>印堂 Seal Hall</h5>
+                    <p><strong>英譯：</strong>Seal Hall / Glabella / Life Palace</p>
+                    <p><strong>位置：</strong>兩眉之間</p>
+                    <p><strong>相學含義：</strong>命宮所在，主一生運勢</p>
+                    <p><strong>中醫對應：</strong>肺氣狀態</p>
+                </div>
+                <div class="face-part">
+                    <div class="icon">⛰️</div>
+                    <h5>山根 Mountain Root</h5>
+                    <p><strong>英譯：</strong>Mountain Root / Nose Bridge Root</p>
+                    <p><strong>位置：</strong>鼻樑起點</p>
+                    <p><strong>相學含義：</strong>疾厄宮，主健康與祖業</p>
+                    <p><strong>中醫對應：</strong>脾胃狀態</p>
+                </div>
+                <div class="face-part">
+                    <div class="icon">💰</div>
+                    <h5>準頭 Nose Tip</h5>
+                    <p><strong>英譯：</strong>Nose Tip / Zhun Tou</p>
+                    <p><strong>位置：</strong>鼻尖</p>
+                    <p><strong>相學含義：</strong>財帛宮，主財運</p>
+                    <p><strong>中醫對應：</strong>脾胃功能</p>
+                </div>
+                <div class="face-part">
+                    <div class="icon">💕</div>
+                    <h5>人中 Philtrum</h5>
+                    <p><strong>英譯：</strong>Philtrum / Ren Zhong</p>
+                    <p><strong>位置：</strong>鼻下凹槽</p>
+                    <p><strong>相學含義：</strong>主壽元與子嗣</p>
+                    <p><strong>中醫對應：</strong>生殖功能</p>
+                </div>
+                <div class="face-part">
+                    <div class="icon">🏠</div>
+                    <h5>地閣 Earth Cabinet</h5>
+                    <p><strong>英譯：</strong>Earth Cabinet / Chin / Di Ge</p>
+                    <p><strong>位置：</strong>下巴</p>
+                    <p><strong>相學含義：</strong>主晚年運勢與家業</p>
+                    <p><strong>中醫對應：</strong>腎氣狀態</p>
+                </div>
+            </div>
+            
+            <h3>6.2 面相特徵與運勢解讀 / Facial Features and Fortune Interpretation</h3>
+            
+            <div class="characteristic-grid">
+                <div class="char-card">
+                    <div class="char-card-header char-wealth">💰 富貴相 Wealthy Appearance</div>
+                    <div class="char-card-body">
+                        <p><strong>特徵 Features：</strong></p>
+                        <div class="term-pair">
+                            <span class="term-zh">天庭飽滿</span>
+                            <span class="term-en">Full forehead</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">地閣方圓</span>
+                            <span class="term-en">Square and round chin</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">鼻頭豐隆</span>
+                            <span class="term-en">Plump nose tip</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">耳垂肥厚</span>
+                            <span class="term-en">Thick earlobes</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">眉清目秀</span>
+                            <span class="term-en">Clear eyebrows, handsome eyes</span>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>解讀：</strong>天庭飽滿者聰明伶俐，鼻頭豐隆者財運亨通，耳垂肥厚者有福氣。</p>
+                    </div>
+                </div>
+                
+                <div class="char-card">
+                    <div class="char-card-header char-wisdom">🧠 聰明相 Intelligent Appearance</div>
+                    <div class="char-card-body">
+                        <p><strong>特徵 Features：</strong></p>
+                        <div class="term-pair">
+                            <span class="term-zh">額頭寬廣</span>
+                            <span class="term-en">Wide forehead</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">眼神明亮</span>
+                            <span class="term-en">Bright eyes</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">眉毛清秀</span>
+                            <span class="term-en">Refined eyebrows</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">印堂開闊</span>
+                            <span class="term-en">Wide glabella</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">唇形端正</span>
+                            <span class="term-en">Well-shaped lips</span>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>解讀：</strong>額頭主智慧，眼神明亮者思維敏捷，印堂開闊者心胸寬廣。</p>
+                    </div>
+                </div>
+                
+                <div class="char-card">
+                    <div class="char-card-header char-marriage">💒 婚姻美滿相 Happy Marriage Appearance</div>
+                    <div class="char-card-body">
+                        <p><strong>特徵 Features：</strong></p>
+                        <div class="term-pair">
+                            <span class="term-zh">夫妻宮平滿</span>
+                            <span class="term-en">Full marriage palace</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">眼尾上揚</span>
+                            <span class="term-en">Upturned eye corners</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">人中清晰</span>
+                            <span class="term-en">Clear philtrum</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">唇色紅潤</span>
+                            <span class="term-en">Rosy lips</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">耳形優美</span>
+                            <span class="term-en">Beautiful ear shape</span>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>解讀：</strong>夫妻宮位於眼尾，平滿無紋者婚姻幸福，人中深長者子孫繁茂。</p>
+                    </div>
+                </div>
+                
+                <div class="char-card">
+                    <div class="char-card-header char-character">💜 心地善良相 Kind-hearted Appearance</div>
+                    <div class="char-card-body">
+                        <p><strong>特徵 Features：</strong></p>
+                        <div class="term-pair">
+                            <span class="term-zh">目光柔和</span>
+                            <span class="term-en">Gentle gaze</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">面帶微笑</span>
+                            <span class="term-en">Smiling face</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">唇厚溫和</span>
+                            <span class="term-en">Thick, gentle lips</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">耳輪分明</span>
+                            <span class="term-en">Clear ear helix</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">面相圓潤</span>
+                            <span class="term-en">Round face shape</span>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>解讀：</strong>目光柔和者心地善良，唇厚者重情義，面相圓潤者性情溫和。</p>
+                    </div>
+                </div>
+                
+                <div class="char-card">
+                    <div class="char-card-header char-health">💚 長壽健康相 Longevity Appearance</div>
+                    <div class="char-card-body">
+                        <p><strong>特徵 Features：</strong></p>
+                        <div class="term-pair">
+                            <span class="term-zh">人中深長</span>
+                            <span class="term-en">Deep, long philtrum</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">眉毛長順</span>
+                            <span class="term-en">Long, smooth eyebrows</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">耳大有輪</span>
+                            <span class="term-en">Large ears with clear helix</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">面色紅潤</span>
+                            <span class="term-en">Rosy complexion</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">骨骼勻稱</span>
+                            <span class="term-en">Balanced bone structure</span>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>解讀：</strong>人中深長者壽元綿長，眉毛為保壽官，長順者長壽。</p>
+                    </div>
+                </div>
+                
+                <div class="char-card">
+                    <div class="char-card-header char-career">💼 事業有成相 Successful Career Appearance</div>
+                    <div class="char-card-body">
+                        <p><strong>特徵 Features：</strong></p>
+                        <div class="term-pair">
+                            <span class="term-zh">額頭高廣</span>
+                            <span class="term-en">High, broad forehead</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">顴骨高聳</span>
+                            <span class="term-en">Prominent cheekbones</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">眉宇軒昂</span>
+                            <span class="term-en">Imposing brow</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">鼻樑挺直</span>
+                            <span class="term-en">Straight nose bridge</span>
+                        </div>
+                        <div class="term-pair">
+                            <span class="term-zh">下巴有力</span>
+                            <span class="term-en">Strong chin</span>
+                        </div>
+                        <p style="margin-top: 10px;"><strong>解讀：</strong>額頭為官祿宮，高廣者事業順遂，顴骨高者有權勢。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>6.3 負面面相特徵 / Negative Facial Features</h3>
+            
+            <div class="warning-box">
+                <h4>⚠️ 注意：面相學僅供參考，不應作為評判他人的依據</h4>
+                <p>以下內容用於學術研究和術語翻譯練習，請以科學態度對待。</p>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>面相特徵</th>
+                    <th>英文翻譯</th>
+                    <th>傳統解讀</th>
+                    <th>中醫關聯</th>
+                </tr>
+                <tr>
+                    <td>印堂發黑</td>
+                    <td>Dark glabella / Darkened Seal Hall</td>
+                    <td>近期運勢不佳，宜小心謹慎</td>
+                    <td>可能反映心肺功能問題</td>
+                </tr>
+                <tr>
+                    <td>山根橫紋</td>
+                    <td>Horizontal lines on nose bridge</td>
+                    <td>婚姻或健康可能有波折</td>
+                    <td>可能反映脾胃虛弱</td>
+                </tr>
+                <tr>
+                    <td>眉頭緊蹙</td>
+                    <td>Furrowed brows / Knitted eyebrows</td>
+                    <td>心事重重，容易憂慮</td>
+                    <td>可能反映肝氣鬱結</td>
+                </tr>
+                <tr>
+                    <td>眼神游移</td>
+                    <td>Shifty eyes / Wandering gaze</td>
+                    <td>傳統認為心思不定</td>
+                    <td>可能反映心神不寧</td>
+                </tr>
+                <tr>
+                    <td>面色蠟黃</td>
+                    <td>Sallow complexion / Waxy yellow face</td>
+                    <td>財運欠佳，體弱多病</td>
+                    <td>脾虛濕盛的表現</td>
+                </tr>
+                <tr>
+                    <td>法令紋深</td>
+                    <td>Deep nasolabial folds / Deep decree lines</td>
+                    <td>辛勞操勞之相</td>
+                    <td>可能反映脾胃功能下降</td>
+                </tr>
+                <tr>
+                    <td>耳小無垂</td>
+                    <td>Small ears without lobes</td>
+                    <td>傳統認為福薄</td>
+                    <td>可能反映先天腎氣不足</td>
+                </tr>
+                <tr>
+                    <td>唇色發紫</td>
+                    <td>Purple lips / Cyanotic lips</td>
+                    <td>健康欠佳</td>
+                    <td>氣滯血瘀或心肺功能問題</td>
+                </tr>
+            </table>
+            
+            <h3>6.4 十二宮位完整對照表 / Complete Twelve Palaces Reference</h3>
+            
+            <table>
+                <tr>
+                    <th>宮位名稱</th>
+                    <th>英文翻譯</th>
+                    <th>面部位置</th>
+                    <th>主管運勢</th>
+                </tr>
+                <tr>
+                    <td>命宮</td>
+                    <td>Life Palace / Ming Gong</td>
+                    <td>印堂（兩眉之間）</td>
+                    <td>整體命運、意志力</td>
+                </tr>
+                <tr>
+                    <td>財帛宮</td>
+                    <td>Wealth Palace / Cai Bo Gong</td>
+                    <td>鼻頭</td>
+                    <td>財運、理財能力</td>
+                </tr>
+                <tr>
+                    <td>兄弟宮</td>
+                    <td>Siblings Palace / Xiong Di Gong</td>
+                    <td>眉毛</td>
+                    <td>兄弟姐妹緣分、人際關係</td>
+                </tr>
+                <tr>
+                    <td>夫妻宮</td>
+                    <td>Marriage Palace / Fu Qi Gong</td>
+                    <td>眼尾（魚尾紋區域）</td>
+                    <td>婚姻、感情運</td>
+                </tr>
+                <tr>
+                    <td>子女宮</td>
+                    <td>Children Palace / Zi Nü Gong</td>
+                    <td>眼下淚堂</td>
+                    <td>子女緣分、生育運</td>
+                </tr>
+                <tr>
+                    <td>奴僕宮</td>
+                    <td>Servants Palace / Nu Pu Gong</td>
+                    <td>面頰下方</td>
+                    <td>下屬緣分、晚年運</td>
+                </tr>
+                <tr>
+                    <td>遷移宮</td>
+                    <td>Migration Palace / Qian Yi Gong</td>
+                    <td>額角（髮際兩側）</td>
+                    <td>出外運、遷移運</td>
+                </tr>
+                <tr>
+                    <td>疾厄宮</td>
+                    <td>Illness Palace / Ji E Gong</td>
+                    <td>山根（鼻樑起點）</td>
+                    <td>健康、疾病運</td>
+                </tr>
+                <tr>
+                    <td>官祿宮</td>
+                    <td>Career Palace / Guan Lu Gong</td>
+                    <td>額頭中央</td>
+                    <td>事業、官運</td>
+                </tr>
+                <tr>
+                    <td>田宅宮</td>
+                    <td>Property Palace / Tian Zhai Gong</td>
+                    <td>眼眉之間上方</td>
+                    <td>房產、家業</td>
+                </tr>
+                <tr>
+                    <td>福德宮</td>
+                    <td>Fortune Palace / Fu De Gong</td>
+                    <td>眉尾上方</td>
+                    <td>福氣、精神生活</td>
+                </tr>
+                <tr>
+                    <td>父母宮</td>
+                    <td>Parents Palace / Fu Mu Gong</td>
+                    <td>額頭兩側（日月角）</td>
+                    <td>與父母緣分、遺傳</td>
+                </tr>
+            </table>
+        </section>
+        
+        <!-- 第七部分：手相解讀 -->
+        <section id="palm-reading" class="section">
+            <h2>✋ 第七部分：手相學詳解與術語翻譯 / Part 7: Palm Reading Analysis</h2>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p>手相學（Palmistry / Chiromancy）通過觀察手掌的紋路、形狀、顏色等特徵來推斷人的性格和命運。手相學與中醫診斷也有密切關係，中醫的望診包括觀察手掌的顏色和質地，以判斷氣血狀況。</p>
+                </div>
+                <div class="en-text">
+                    <p>Palmistry (or Chiromancy) infers a person's character and destiny through observing palm lines, shapes, and colors. Palmistry also has close connections with TCM diagnosis; TCM inspection includes observing palm color and texture to assess Qi and Blood conditions.</p>
+                </div>
+            </div>
+            
+            <h3>7.1 三大主線 / Three Major Lines</h3>
+            
+            <div class="palm-reading">
+                <div class="palm-line">
+                    <h5>❤️ 生命線 Life Line</h5>
+                    <p><strong>中文別名：</strong>地紋</p>
+                    <p><strong>英文：</strong>Life Line / Vitality Line</p>
+                    <p><strong>位置：</strong>圍繞拇指根部的弧線</p>
+                    <p><strong>主管：</strong>健康、體質、生命力</p>
+                    <p><strong>特徵解讀：</strong></p>
+                    <ul style="padding-left: 20px; font-size: 0.9em;">
+                        <li>深長清晰 → 體質強健</li>
+                        <li>淺短模糊 → 體質較弱</li>
+                        <li>弧度大 → 精力充沛</li>
+                        <li>有斷裂 → 曾有重大變故</li>
+                    </ul>
+                </div>
+                
+                <div class="palm-line">
+                    <h5>🧠 智慧線 Head Line</h5>
+                    <p><strong>中文別名：</strong>人紋</p>
+                    <p><strong>英文：</strong>Head Line / Wisdom Line</p>
+                    <p><strong>位置：</strong>從食指根部橫跨手掌</p>
+                    <p><strong>主管：</strong>智力、思維、判斷力</p>
+                    <p><strong>特徵解讀：</strong></p>
+                    <ul style="padding-left: 20px; font-size: 0.9em;">
+                        <li>長而清晰 → 思維敏捷</li>
+                        <li>末端下垂 → 想像力豐富</li>
+                        <li>末端平直 → 務實理性</li>
+                        <li>分叉 → 多才多藝</li>
+                    </ul>
+                </div>
+                
+                <div class="palm-line">
+                    <h5>💕 感情線 Heart Line</h5>
+                    <p><strong>中文別名：</strong>天紋</p>
+                    <p><strong>英文：</strong>Heart Line / Emotion Line</p>
+                    <p><strong>位置：</strong>手掌上方橫線</p>
+                    <p><strong>主管：</strong>感情、情緒、心臟健康</p>
+                    <p><strong>特徵解讀：</strong></p>
+                    <ul style="padding-left: 20px; font-size: 0.9em;">
+                        <li>深長 → 感情豐富</li>
+                        <li>末端上揚 → 樂觀開朗</li>
+                        <li>鏈狀 → 感情多波折</li>
+                        <li>清晰連續 → 感情穩定</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>7.2 輔助線與特殊紋路 / Secondary Lines and Special Markings</h3>
+            
+            <table>
+                <tr>
+                    <th>中文名稱</th>
+                    <th>英文翻譯</th>
+                    <th>位置說明</th>
+                    <th>含義解讀</th>
+                </tr>
+                <tr>
+                    <td>事業線</td>
+                    <td>Fate Line / Career Line / Destiny Line</td>
+                    <td>從手腕向中指延伸的縱線</td>
+                    <td>事業運、人生方向</td>
+                </tr>
+                <tr>
+                    <td>太陽線</td>
+                    <td>Sun Line / Apollo Line / Success Line</td>
+                    <td>無名指下方的縱線</td>
+                    <td>名聲、成功、藝術天賦</td>
+                </tr>
+                <tr>
+                    <td>婚姻線</td>
+                    <td>Marriage Line / Relationship Line / Affection Line</td>
+                    <td>小指根部下方的橫紋</td>
+                    <td>婚姻、重要感情關係</td>
+                </tr>
+                <tr>
+                    <td>健康線</td>
+                    <td>Health Line / Mercury Line</td>
+                    <td>從小指斜向手腕</td>
+                    <td>健康狀況（無此線反而好）</td>
+                </tr>
+                <tr>
+                    <td>財運線</td>
+                    <td>Money Line / Wealth Line</td>
+                    <td>小指根部的短縱紋</td>
+                    <td>財運、理財能力</td>
+                </tr>
+                <tr>
+                    <td>旅行線</td>
+                    <td>Travel Line / Journey Line</td>
+                    <td>手掌邊緣靠近手腕處</td>
+                    <td>出國、遷移運</td>
+                </tr>
+                <tr>
+                    <td>子女線</td>
+                    <td>Children Line / Offspring Line</td>
+                    <td>婚姻線上方的細紋</td>
+                    <td>子女數量和緣分</td>
+                </tr>
+                <tr>
+                    <td>貴人線</td>
+                    <td>Benefactor Line / Influence Line</td>
+                    <td>從生命線內側延伸</td>
+                    <td>貴人運、他人幫助</td>
+                </tr>
+            </table>
+            
+            <h3>7.3 手掌丘位 / Palm Mounts</h3>
+            
+            <div class="palm-reading">
+                <div class="palm-line">
+                    <h5>🌟 金星丘 Mount of Venus</h5>
+                    <p><strong>位置：</strong>拇指根部隆起</p>
+                    <p><strong>代表：</strong>愛情、活力、生命力</p>
+                    <p><strong>豐滿：</strong>熱情、精力充沛</p>
+                    <p><strong>平坦：</strong>冷淡、缺乏活力</p>
+                </div>
+                
+                <div class="palm-line">
+                    <h5>⚡ 木星丘 Mount of Jupiter</h5>
+                    <p><strong>位置：</strong>食指根部隆起</p>
+                    <p><strong>代表：</strong>野心、領導力、自信</p>
+                    <p><strong>豐滿：</strong>有抱負、領導才能</p>
+                    <p><strong>平坦：</strong>缺乏自信</p>
+                </div>
+                
+                <div class="palm-line">
+                    <h5>🪐 土星丘 Mount of Saturn</h5>
+                    <p><strong>位置：</strong>中指根部隆起</p>
+                    <p><strong>代表：</strong>責任、智慧、穩重</p>
+                    <p><strong>豐滿：</strong>謹慎、有責任感</p>
+                    <p><strong>平坦：</strong>缺乏耐心</p>
+                </div>
+                
+                <div class="palm-line">
+                    <h5>☀️ 太陽丘 Mount of Apollo</h5>
+                    <p><strong>位置：</strong>無名指根部隆起</p>
+                    <p><strong>代表：</strong>藝術、創造力、名聲</p>
+                    <p><strong>豐滿：</strong>有藝術天賦</p>
+                    <p><strong>平坦：</strong>缺乏審美感</p>
+                </div>
+                
+                <div class="palm-line">
+                    <h5>☿ 水星丘 Mount of Mercury</h5>
+                    <p><strong>位置：</strong>小指根部隆起</p>
+                    <p><strong>代表：</strong>溝通、商業、智慧</p>
+                    <p><strong>豐滿：</strong>善於溝通、有商業頭腦</p>
+                    <p><strong>平坦：</strong>不善表達</p>
+                </div>
+                
+                <div class="palm-line">
+                    <h5>🌙 月丘 Mount of Luna</h5>
+                    <p><strong>位置：</strong>手掌外側下方</p>
+                    <p><strong>代表：</strong>想像力、直覺、創意</p>
+                    <p><strong>豐滿：</strong>想像力豐富</p>
+                    <p><strong>平坦：</strong>缺乏創意</p>
+                </div>
+            </div>
+            
+            <h3>7.4 特殊掌紋 / Special Palm Patterns</h3>
+            
+            <div class="funny-box">
+                <h4>斷掌 Simian Line 的翻譯趣談</h4>
+                <p>「斷掌」在英文中稱為 <strong>Simian Line</strong>（猿線）或 <strong>Single Palmar Crease</strong>（單一掌紋），因為這種掌紋在猿猴中較為常見。</p>
+                <br>
+                <p><strong>傳統觀念：</strong>斷掌者性格剛強、做事果斷，民間有「男斷掌掌朝綱，女斷掌守空房」的說法。</p>
+                <br>
+                <p><strong>現代觀點：</strong>這只是一種正常的掌紋變異，約有4%的人口有此特徵，與性格或命運無必然關係。</p>
+                <br>
+                <p><strong>誤譯笑話：</strong>「Broken palm」聽起來像手掌斷了，「Cut-off hand」更像是截肢！正確翻譯應為 Simian Line 或 Simian Crease。</p>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>特殊掌紋</th>
+                    <th>英文翻譯</th>
+                    <th>特徵描述</th>
+                    <th>傳統解讀</th>
+                </tr>
+                <tr>
+                    <td>斷掌</td>
+                    <td>Simian Line / Single Palmar Crease</td>
+                    <td>智慧線與感情線合為一線</td>
+                    <td>性格剛強，意志堅定</td>
+                </tr>
+                <tr>
+                    <td>川字掌</td>
+                    <td>Chuan-character Palm / Three Separate Lines</td>
+                    <td>三大主線互不相連呈「川」字</td>
+                    <td>獨立自主，不依賴他人</td>
+                </tr>
+                <tr>
+                    <td>島紋</td>
+                    <td>Island Marking / Island Pattern</td>
+                    <td>線條中的橢圓形封閉區域</td>
+                    <td>該時期有阻礙或困難</td>
+                </tr>
+                <tr>
+                    <td>星紋</td>
+                    <td>Star Marking / Star Pattern</td>
+                    <td>多條短線交叉形成星狀</td>
+                    <td>突發事件或重大變化</td>
+                </tr>
+                <tr>
+                    <td>十字紋</td>
+                    <td>Cross Marking / Cross Pattern</td>
+                    <td>兩條線交叉形成十字</td>
+                    <td>視位置而定，可好可壞</td>
+                </tr>
+                <tr>
+                    <td>方格紋</td>
+                    <td>Square Marking / Protection Square</td>
+                    <td>四條線圍成方形</td>
+                    <td>保護作用，化險為夷</td>
+                </tr>
+                <tr>
+                    <td>三角紋</td>
+                    <td>Triangle Marking / Triangle Pattern</td>
+                    <td>三條線圍成三角形</td>
+                    <td>智慧、成就的象徵</td>
+                </tr>
+            </table>
+        </section>
+        
+        <!-- 第八部分：命理風水 -->
+        <section id="fortune" class="section">
+            <h2>🔮 第八部分：命理風水術語 / Part 8: Fortune-Telling & Feng Shui</h2>
+            
+            <h3>8.1 五行理論 / Five Elements Theory</h3>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p>五行理論是中醫與命理的共同基礎。木、火、土、金、水五種元素相互生剋，形成宇宙萬物運行的規律。在命理學中，每個人根據出生時間都有其五行屬性的強弱配置，這影響著性格、健康和運勢。</p>
+                </div>
+                <div class="en-text">
+                    <p>Five Elements theory is the common foundation of TCM and fortune-telling. The five elements—Wood, Fire, Earth, Metal, and Water—generate and restrict each other, forming the patterns governing all things. In destiny analysis, each person has a unique Five Elements configuration based on birth time, affecting personality, health, and fortune.</p>
+                </div>
+            </div>
+            
+            <div class="five-elements">
+                <div class="element-card element-wood">
+                    <span class="icon">🌳</span>
+                    <strong>木 Wood</strong>
+                    <p>肝 Liver</p>
+                    <p>東方 East</p>
+                    <p>春季 Spring</p>
+                    <p>青色 Green</p>
+                </div>
+                <div class="element-card element-fire">
+                    <span class="icon">🔥</span>
+                    <strong>火 Fire</strong>
+                    <p>心 Heart</p>
+                    <p>南方 South</p>
+                    <p>夏季 Summer</p>
+                    <p>紅色 Red</p>
+                </div>
+                <div class="element-card element-earth">
+                    <span class="icon">🌍</span>
+                    <strong>土 Earth</strong>
+                    <p>脾 Spleen</p>
+                    <p>中央 Center</p>
+                    <p>長夏 Late Summer</p>
+                    <p>黃色 Yellow</p>
+                </div>
+                <div class="element-card element-metal">
+                    <span class="icon">🪙</span>
+                    <strong>金 Metal</strong>
+                    <p>肺 Lung</p>
+                    <p>西方 West</p>
+                    <p>秋季 Autumn</p>
+                    <p>白色 White</p>
+                </div>
+                <div class="element-card element-water">
+                    <span class="icon">💧</span>
+                    <strong>水 Water</strong>
+                    <p>腎 Kidney</p>
+                    <p>北方 North</p>
+                    <p>冬季 Winter</p>
+                    <p>黑色 Black</p>
+                </div>
+            </div>
+            
+            <h3>8.2 八字命理術語 / BaZi Terminology</h3>
+            
+            <table>
+                <tr>
+                    <th>中文術語</th>
+                    <th>拼音</th>
+                    <th>英文翻譯</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>八字</td>
+                    <td>bā zì</td>
+                    <td>BaZi / Four Pillars of Destiny / Eight Characters</td>
+                    <td>根據出生年月日時推算命運</td>
+                </tr>
+                <tr>
+                    <td>天干</td>
+                    <td>tiān gān</td>
+                    <td>Heavenly Stems / Celestial Stems</td>
+                    <td>甲乙丙丁戊己庚辛壬癸十個</td>
+                </tr>
+                <tr>
+                    <td>地支</td>
+                    <td>dì zhī</td>
+                    <td>Earthly Branches / Terrestrial Branches</td>
+                    <td>子丑寅卯辰巳午未申酉戌亥十二個</td>
+                </tr>
+                <tr>
+                    <td>年柱</td>
+                    <td>nián zhù</td>
+                    <td>Year Pillar</td>
+                    <td>出生年的天干地支</td>
+                </tr>
+                <tr>
+                    <td>月柱</td>
+                    <td>yuè zhù</td>
+                    <td>Month Pillar</td>
+                    <td>出生月的天干地支</td>
+                </tr>
+                <tr>
+                    <td>日柱</td>
+                    <td>rì zhù</td>
+                    <td>Day Pillar</td>
+                    <td>出生日的天干地支</td>
+                </tr>
+                <tr>
+                    <td>時柱</td>
+                    <td>shí zhù</td>
+                    <td>Hour Pillar</td>
+                    <td>出生時辰的天干地支</td>
+                </tr>
+                <tr>
+                    <td>日主</td>
+                    <td>rì zhǔ</td>
+                    <td>Day Master / Day Stem</td>
+                    <td>日柱天干，代表命主本人</td>
+                </tr>
+                <tr>
+                    <td>大運</td>
+                    <td>dà yùn</td>
+                    <td>Major Luck Cycle / Decade Luck</td>
+                    <td>每十年一個運程週期</td>
+                </tr>
+                <tr>
+                    <td>流年</td>
+                    <td>liú nián</td>
+                    <td>Annual Luck / Yearly Fortune</td>
+                    <td>每年的運勢</td>
+                </tr>
+                <tr>
+                    <td>用神</td>
+                    <td>yòng shén</td>
+                    <td>Useful God / Favorable Element</td>
+                    <td>命格中最有利的五行</td>
+                </tr>
+                <tr>
+                    <td>忌神</td>
+                    <td>jì shén</td>
+                    <td>Unfavorable God / Unfavorable Element</td>
+                    <td>命格中最不利的五行</td>
+                </tr>
+            </table>
+            
+            <h3>8.3 紫微斗數術語 / Zi Wei Dou Shu Terminology</h3>
+            
+            <table>
+                <tr>
+                    <th>中文術語</th>
+                    <th>英文翻譯</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>紫微斗數</td>
+                    <td>Zi Wei Dou Shu / Purple Star Astrology</td>
+                    <td>中國傳統命理學的重要流派</td>
+                </tr>
+                <tr>
+                    <td>紫微星</td>
+                    <td>Zi Wei Star / Purple Star / Emperor Star</td>
+                    <td>北極星，帝王之星</td>
+                </tr>
+                <tr>
+                    <td>命宮</td>
+                    <td>Life Palace / Ming Gong</td>
+                    <td>代表整體命運格局</td>
+                </tr>
+                <tr>
+                    <td>十二宮</td>
+                    <td>Twelve Palaces</td>
+                    <td>命盤中的十二個宮位</td>
+                </tr>
+                <tr>
+                    <td>主星</td>
+                    <td>Main Star / Major Star</td>
+                    <td>影響命運的主要星曜</td>
+                </tr>
+                <tr>
+                    <td>輔星</td>
+                    <td>Auxiliary Star / Minor Star</td>
+                    <td>輔助作用的星曜</td>
+                </tr>
+                <tr>
+                    <td>四化</td>
+                    <td>Four Transformations</td>
+                    <td>化祿、化權、化科、化忌</td>
+                </tr>
+                <tr>
+                    <td>廟旺</td>
+                    <td>Temple Prosperity / Strong Position</td>
+                    <td>星曜處於有利位置</td>
+                </tr>
+                <tr>
+                    <td>陷落</td>
+                    <td>Fallen Position / Weak Position</td>
+                    <td>星曜處於不利位置</td>
+                </tr>
+            </table>
+            
+            <h3>8.4 風水術語 / Feng Shui Terminology</h3>
+            
+            <table>
+                <tr>
+                    <th>中文術語</th>
+                    <th>英文翻譯</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>風水</td>
+                    <td>Feng Shui / Geomancy</td>
+                    <td>環境與能量的學問</td>
+                </tr>
+                <tr>
+                    <td>氣場</td>
+                    <td>Qi Field / Energy Field</td>
+                    <td>環境中的能量狀態</td>
+                </tr>
+                <tr>
+                    <td>羅盤</td>
+                    <td>Luopan / Feng Shui Compass</td>
+                    <td>測量方位的專用工具</td>
+                </tr>
+                <tr>
+                    <td>龍脈</td>
+                    <td>Dragon Vein / Mountain Range Energy</td>
+                    <td>山脈走向形成的能量線</td>
+                </tr>
+                <tr>
+                    <td>穴位</td>
+                    <td>Acupoint / Vital Point (in Feng Shui context)</td>
+                    <td>風水中的吉利位置</td>
+                </tr>
+                <tr>
+                    <td>明堂</td>
+                    <td>Bright Hall / Ming Tang</td>
+                    <td>房屋前方的開闊空間</td>
+                </tr>
+                <tr>
+                    <td>玄關</td>
+                    <td>Entrance Hall / Foyer / Xuan Guan</td>
+                    <td>入門處的緩衝空間</td>
+                </tr>
+                <tr>
+                    <td>煞氣</td>
+                    <td>Sha Qi / Negative Energy / Killing Qi</td>
+                    <td>不利的能量</td>
+                </tr>
+                <tr>
+                    <td>化煞</td>
+                    <td>Neutralize Sha / Dissolve Negative Energy</td>
+                    <td>消除或轉化不利能量</td>
+                </tr>
+                <tr>
+                    <td>文昌位</td>
+                    <td>Wen Chang Position / Study Position</td>
+                    <td>有利於學業的方位</td>
+                </tr>
+                <tr>
+                    <td>財位</td>
+                    <td>Wealth Position / Prosperity Corner</td>
+                    <td>有利於財運的方位</td>
+                </tr>
+                <tr>
+                    <td>桃花位</td>
+                    <td>Romance Position / Peach Blossom Position</td>
+                    <td>有利於感情的方位</td>
+                </tr>
+            </table>
+            
+            <div class="activity-box">
+                <h4>課堂活動：為自己算命！</h4>
+                <p><strong>活動目的：</strong>透過實際操作理解命理術語，並練習術語翻譯</p>
+                <ol style="padding-left: 20px; margin-top: 10px;">
+                    <li>學生查詢自己的農曆生辰八字</li>
+                    <li>分析八字中的五行分布</li>
+                    <li>用英文描述自己的五行特點</li>
+                    <li>根據五行缺失提出養生建議</li>
+                    <li>將整個過程的術語整理成雙語詞彙表</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- 第九部分：Termify實作 -->
+        <section id="termify" class="section">
+            <h2>💻 第九部分：Termify 實作教學 / Part 9: Hands-On with Termify</h2>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p>Termify 是一個 AI 驅動的雙語術語提取工具，可以從中英平行文本中自動識別和提取專業術語，支援多種匯出格式，非常適合建立專業術語庫。</p>
+                </div>
+                <div class="en-text">
+                    <p>Termify is an AI-powered bilingual terminology extractor that can automatically identify and extract professional terms from Chinese-English parallel texts, supporting multiple export formats, ideal for building professional terminology databases.</p>
+                </div>
+            </div>
+            
+            <h3>9.1 Termify 功能介紹 / Termify Features</h3>
+            
+            <div class="info-box">
+                <h4>主要功能 / Key Features</h4>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li><strong>Bilingual Extraction</strong>：從平行文本中提取中英術語對</li>
+                    <li><strong>Smart Chunking</strong>：智能分段處理長文本</li>
+                    <li><strong>Custom Commands</strong>：使用自然語言指令控制提取範圍</li>
+                    <li><strong>Multiple Export Formats</strong>：支援 CSV、JSON、TSV、TBX 格式</li>
+                    <li><strong>Category Detection</strong>：自動分類術語類型</li>
+                </ul>
+            </div>
+            
+            <h3>9.2 安裝與執行 / Installation and Execution</h3>
+            
+            <div class="code-block">
+                <span class="comment"># 複製專案 / Clone the repository</span><br>
+                <span class="keyword">git clone</span> https://github.com/digimarketingai/termify.git<br>
+                <span class="keyword">cd</span> termify<br><br>
+                
+                <span class="comment"># 安裝依賴 / Install dependencies</span><br>
+                <span class="keyword">pip install</span> -r requirements.txt<br><br>
+                
+                <span class="comment"># 執行應用程式 / Run the application</span><br>
+                <span class="keyword">python</span> app.py
+            </div>
+            
+            <h3>9.3 系統需求 / System Requirements</h3>
+            
+            <table>
+                <tr>
+                    <th>項目 / Item</th>
+                    <th>需求 / Requirement</th>
+                </tr>
+                <tr>
+                    <td>Python 版本</td>
+                    <td>3.8 或更高版本</td>
+                </tr>
+                <tr>
+                    <td>API Key</td>
+                    <td>Mistral AI API key（可免費申請）</td>
+                </tr>
+                <tr>
+                    <td>主要套件</td>
+                    <td>gradio>=4.0.0, openai>=1.0.0</td>
+                </tr>
+                <tr>
+                    <td>最大輸入</td>
+                    <td>每個文本欄位 20,000 字元</td>
+                </tr>
+                <tr>
+                    <td>最大術語數</td>
+                    <td>20-300 個術語</td>
+                </tr>
+            </table>
+            
+            <h3>9.4 提取模式 / Extraction Modes</h3>
+            
+            <h4>標準模式（關鍵字）/ Standard Mode (Keywords)</h4>
+            
+            <table>
+                <tr>
+                    <th>關鍵字 / Keyword</th>
+                    <th>提取範圍 / Focus Area</th>
+                </tr>
+                <tr>
+                    <td>medical</td>
+                    <td>疾病、症狀、治療程序</td>
+                </tr>
+                <tr>
+                    <td>technical</td>
+                    <td>設備、器械、技術程序</td>
+                </tr>
+                <tr>
+                    <td>organization</td>
+                    <td>政府機構、組織名稱</td>
+                </tr>
+                <tr>
+                    <td>place</td>
+                    <td>地點、地區、國家</td>
+                </tr>
+            </table>
+            
+            <h4>自定義命令模式 / Custom Command Mode</h4>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p><strong>中文指令範例：</strong></p>
+                    <ul style="padding-left: 20px;">
+                        <li>只提取中醫病名和症狀名稱</li>
+                        <li>找出所有臟腑經絡相關術語</li>
+                        <li>提取面相學專用術語</li>
+                        <li>列出所有五行相關詞彙</li>
+                    </ul>
+                </div>
+                <div class="en-text">
+                    <p><strong>English Command Examples:</strong></p>
+                    <ul style="padding-left: 20px;">
+                        <li>Extract only TCM disease and symptom names</li>
+                        <li>Find all Zang-Fu and meridian related terms</li>
+                        <li>Extract physiognomy specific terminology</li>
+                        <li>List all Five Elements related vocabulary</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>9.5 匯出格式說明 / Export Format Description</h3>
+            
+            <table>
+                <tr>
+                    <th>格式 / Format</th>
+                    <th>說明 / Description</th>
+                    <th>適用場景 / Use Case</th>
+                </tr>
+                <tr>
+                    <td>CSV</td>
+                    <td>逗號分隔值檔案</td>
+                    <td>Excel 試算表、數據分析</td>
+                </tr>
+                <tr>
+                    <td>JSON</td>
+                    <td>結構化數據格式</td>
+                    <td>API 開發、程式整合</td>
+                </tr>
+                <tr>
+                    <td>TSV</td>
+                    <td>Tab 分隔值檔案</td>
+                    <td>CAT 工具匯入</td>
+                </tr>
+                <tr>
+                    <td>TBX</td>
+                    <td>TermBase eXchange 格式</td>
+                    <td>專業翻譯工具（SDL Trados, MemoQ）</td>
+                </tr>
+            </table>
+            
+            <h3>9.6 課堂實作步驟 / Classroom Practice Steps</h3>
+            
+            <div class="activity-box">
+                <h4>實作練習：提取中醫術語</h4>
+                <ol style="padding-left: 20px; margin-top: 10px;">
+                    <li><strong>準備文本：</strong>使用本課程提供的雙語平行文本</li>
+                    <li><strong>啟動 Termify：</strong>執行 python app.py，開啟網頁介面</li>
+                    <li><strong>輸入文本：</strong>將中文原文貼入 Source Text，英文譯文貼入 Target Text</li>
+                    <li><strong>設定指令：</strong>輸入「Extract TCM terminology including disease names, organ names, and treatment methods」</li>
+                    <li><strong>執行提取：</strong>點擊 Extract 按鈕</li>
+                    <li><strong>檢視結果：</strong>查看提取的術語對及其分類</li>
+                    <li><strong>匯出術語庫：</strong>選擇適當格式匯出</li>
+                    <li><strong>術語校對：</strong>檢查並修正可能的錯誤</li>
+                </ol>
+            </div>
+            
+            <h3>9.7 部署網頁版術語庫 / Deploying Web-Based Termbase</h3>
+            
+            <div class="bilingual">
+                <div class="zh-text">
+                    <p><strong>使用 GitHub Pages 發布術語庫：</strong></p>
+                    <ol style="padding-left: 20px;">
+                        <li>將術語庫匯出為 JSON 格式</li>
+                        <li>建立 GitHub 倉庫</li>
+                        <li>設計簡單的網頁搜尋介面</li>
+                        <li>啟用 GitHub Pages</li>
+                        <li>分享網址給團隊成員</li>
+                    </ol>
+                </div>
+                <div class="en-text">
+                    <p><strong>Publishing Termbase with GitHub Pages:</strong></p>
+                    <ol style="padding-left: 20px;">
+                        <li>Export termbase in JSON format</li>
+                        <li>Create a GitHub repository</li>
+                        <li>Design a simple web search interface</li>
+                        <li>Enable GitHub Pages</li>
+                        <li>Share the URL with team members</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 第十部分：線上資源 -->
+        <section id="resources" class="section">
+            <h2>🌐 第十部分：線上術語資源 / Part 10: Online Terminology Resources</h2>
+            
+            <h3>10.1 官方權威資源 / Official Authoritative Resources</h3>
+            
+            <table>
+                <tr>
+                    <th>資源名稱</th>
+                    <th>說明</th>
+                    <th>網址</th>
+                </tr>
+                <tr>
+                    <td>WHO IST on TCM (2022)</td>
+                    <td>世界衛生組織國際標準中醫術語，收錄 3,387 個術語</td>
+                    <td><a href="https://www.who.int/publications/i/item/9789240042322" target="_blank">WHO 官網</a></td>
+                </tr>
+                <tr>
+                    <td>WFCMS Standard Nomenclature</td>
+                    <td>世界中醫藥學會聯合會標準，收錄 6,526 個術語</td>
+                    <td>WFCMS 官網</td>
+                </tr>
+                <tr>
+                    <td>WHO WPRO Standard (2007)</td>
+                    <td>WHO 西太區傳統醫學術語標準，收錄 3,543 個術語</td>
+                    <td>WHO WPRO 官網</td>
+                </tr>
+            </table>
+            
+            <h3>10.2 學術詞典資源 / Academic Dictionary Resources</h3>
+            
+            <table>
+                <tr>
+                    <th>資源名稱</th>
+                    <th>說明</th>
+                    <th>特色</th>
+                </tr>
+                <tr>
+                    <td>Paradigm Publications Online TCM Dictionary</td>
+                    <td>收錄超過 33,000 個術語</td>
+                    <td>最大的可搜索中醫術語庫</td>
+                </tr>
+                <tr>
+                    <td>Wiseman's Practical Dictionary of Chinese Medicine</td>
+                    <td>Nigel Wiseman 編著</td>
+                    <td>翻譯界權威參考</td>
+                </tr>
+                <tr>
+                    <td>謝竹藩《中醫大辭典》</td>
+                    <td>中英對照版</td>
+                    <td>大陸學術標準</td>
+                </tr>
+            </table>
+            
+            <h3>10.3 免費線上資源 / Free Online Resources</h3>
+            
+            <table>
+                <tr>
+                    <th>資源名稱</th>
+                    <th>網址</th>
+                    <th>特色</th>
+                </tr>
+                <tr>
+                    <td>Shen-Nong TCM Glossary</td>
+                    <td>shen-nong.com</td>
+                    <td>基礎術語解釋，適合初學者</td>
+                </tr>
+                <tr>
+                    <td>Sacred Lotus TCM Dictionary</td>
+                    <td>sacredlotus.com</td>
+                    <td>可搜尋式術語庫</td>
+                </tr>
+                <tr>
+                    <td>AcuMedic Glossary</td>
+                    <td>clinic.acumedic.com</td>
+                    <td>詳細概念解釋</td>
+                </tr>
+                <tr>
+                    <td>Your Tea TCM Glossary</td>
+                    <td>yourtea.com</td>
+                    <td>簡明易懂的術語說明</td>
+                </tr>
+            </table>
+            
+            <div class="success-box">
+                <h4>✅ 術語庫使用建議</h4>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li>優先參考 WHO 2022 年標準，確保術語的國際通用性</li>
+                    <li>對比不同標準的譯法，理解翻譯策略的差異</li>
+                    <li>建立個人術語庫，記錄翻譯心得和注意事項</li>
+                    <li>定期更新術語庫，跟進最新的標準化進展</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 第十一部分：參考文獻 -->
+        <section id="references" class="section">
+            <h2>📚 第十一部分：參考文獻 / Part 11: References</h2>
+            
+            <div class="reference-list">
+                <h4>官方標準文獻 / Official Standards</h4>
+                <ol>
+                    <li>World Health Organization. (2022). <em>WHO International Standard Terminologies on Traditional Chinese Medicine</em>. Geneva: WHO.</li>
+                    <li>World Health Organization Western Pacific Region. (2007). <em>WHO International Standard Terminologies on Traditional Medicine in the Western Pacific Region</em>. Manila: WHO WPRO.</li>
+                    <li>World Federation of Chinese Medicine Societies. (2008). <em>International Standard Chinese-English Basic Nomenclature of Chinese Medicine</em>. Beijing: WFCMS.</li>
+                </ol>
+                
+                <h4>學術專著 / Academic Monographs</h4>
+                <ol start="4">
+                    <li>Wiseman, N., & Feng, Y. (1998). <em>A Practical Dictionary of Chinese Medicine</em>. Brookline: Paradigm Publications.</li>
+                    <li>Unschuld, P. U. (2003). <em>Huang Di Nei Jing Su Wen: Nature, Knowledge, Imagery in an Ancient Chinese Medical Text</em>. Berkeley: University of California Press.</li>
+                    <li>李照國 (Li Zhaoguo). (2008). 《中醫英語翻譯標準化研究》. 北京: 人民衛生出版社.</li>
+                    <li>謝竹藩 (Xie Zhufan). (2002). <em>Chinese-English Medical Dictionary of Traditional Chinese Medicine</em> (2nd ed.). 北京: 人民衛生出版社.</li>
+                </ol>
+                
+                <h4>學術論文 / Academic Papers</h4>
+                <ol start="8">
+                    <li>Chinese Medicine and Culture. (2025). A Qualitative Analysis of WHO's International Standard Terminologies on Traditional Chinese Medicine. <em>Chinese Medicine and Culture</em>, 8(1).</li>
+                    <li>RSISINTERNATIONAL. (2024). The History, Development, and Prospect of Standardization in English Translation of TCM Terminology. <em>International Journal of Research and Innovation in Social Science</em>.</li>
+                    <li>Journal of Integrative Medicine. (2022). Translating TCM nomenclature into English: A bilingual reference tool needed for clinical practice. <em>Journal of Integrative Medicine</em>.</li>
+                    <li>SAGE Open. (2023). Translation Studies of Traditional Chinese Medicine in China: Achievements and Prospects. <em>SAGE Open</em>.</li>
+                </ol>
+                
+                <h4>線上資源 / Online Resources</h4>
+                <ol start="12">
+                    <li>Termify GitHub Repository: <a href="https://github.com/digimarketingai/termify" target="_blank">https://github.com/digimarketingai/termify</a></li>
+                    <li>Paradigm Publications Online TCM Dictionary: <a href="https://www.paradigm-pubs.com/" target="_blank">https://www.paradigm-pubs.com/</a></li>
+                    <li>Shen-Nong TCM Portal: <a href="http://www.shen-nong.com/" target="_blank">http://www.shen-nong.com/</a></li>
+                    <li>Sacred Lotus TCM Dictionary: <a href="https://www.sacredlotus.com/" target="_blank">https://www.sacredlotus.com/</a></li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <p>📖 中醫術語庫與命理文化術語翻譯教學設計</p>
+        <p>TCM Terminology Database and Fortune-Telling Cultural Terminology Translation</p>
+        <p style="margin-top: 15px; font-size: 0.9em;">翻譯研究所研究生課程教材 | Postgraduate Translation Studies Course Material</p>
+        <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.8;">
+            本教材僅供教學研究使用 | For educational and research purposes only<br>
+            GitHub: <a href="https://github.com/digimarketingai/termify">digimarketingai/termify</a>
+        </p>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add active state to navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.background = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.background = 'rgba(212, 175, 55, 0.3)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
