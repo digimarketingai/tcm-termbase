@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCM & Chinese Cultural Terms Translation | 中醫與中國文化詞彙翻譯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #dee2e6;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #2d5a27;
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            display: block;
+            font-size: 1.2rem;
+            color: #555;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .nav-tab:hover {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            color: #2d5a27;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #4caf50, #2d5a27);
+            color: #fff;
+            font-weight: bold;
+            border-color: transparent;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .paragraph-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .paragraph-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .paragraph-title {
+            font-size: 1.3rem;
+            color: #2d5a27;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f5e9;
+        }
+
+        .language-block {
+            margin-bottom: 20px;
+        }
+
+        .language-label {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e8f5e9;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #2d5a27;
+            margin-bottom: 10px;
+        }
+
+        .language-label.english {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .text-content {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: #444;
+        }
+
+        .text-content.chinese {
+            font-size: 1.1rem;
+        }
+
+        .mistranslation {
+            background: #ffebee;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border-bottom: 2px dashed #e53935;
+            cursor: help;
+            color: #c62828;
+        }
+
+        .answer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .answer-table th {
+            background: #e8f5e9;
+            color: #2d5a27;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .answer-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .answer-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .wrong {
+            color: #e53935;
+        }
+
+        .correct {
+            color: #2e7d32;
+        }
+
+        .explanation-card {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .explanation-title {
+            font-size: 1.1rem;
+            color: #2d5a27;
+            margin-bottom: 15px;
+        }
+
+        .explanation-content {
+            display: grid;
+            gap: 10px;
+        }
+
+        .explanation-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .explanation-label {
+            min-width: 70px;
+            padding: 2px 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #555;
+        }
+
+        .method-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .method-card {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .method-name {
+            font-size: 1.1rem;
+            color: #1565c0;
+            margin-bottom: 8px;
+        }
+
+        .method-desc {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .method-example {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .example-wrong {
+            background: #ffebee;
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: #c62828;
+        }
+
+        .example-correct {
+            background: #e8f5e9;
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: #2e7d32;
+        }
+
+        .arrow {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 30px;
+        }
+
+        .tcm-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            h1 span {
+                font-size: 1rem;
+            }
+
+            .nav-tab {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+
+            .paragraph-card {
+                padding: 18px;
+            }
+
+            .answer-table th,
+            .answer-table td {
+                padding: 10px 8px;
+                font-size: 0.9rem;
+            }
+
+            .explanation-row {
+                flex-direction: column;
+            }
+
+            .explanation-label {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="tcm-icon">🌿</div>
+            <h1>
+                TCM & Chinese Cultural Terms Translation
+                <span>中醫與中國文化詞彙翻譯練習</span>
+            </h1>
+            <p class="subtitle">Traditional Chinese Medicine | Fortune Telling | Cultural Vocabulary</p>
+        </header>
+
+        <nav class="nav-tabs">
+            <div class="nav-tab active" onclick="showSection('reading')">📖 閱讀 Reading</div>
+            <div class="nav-tab" onclick="showSection('answers')">✅ 答案 Answers</div>
+            <div class="nav-tab" onclick="showSection('explanations')">💡 解釋 Explanations</div>
+            <div class="nav-tab" onclick="showSection('methods')">📚 翻譯方法 Methods</div>
+        </nav>
+
+        <!-- Reading Section -->
+        <section id="reading" class="section active">
+            <div class="paragraph-card">
+                <h2 class="paragraph-title">Paragraph 1: 掌相與面相 Palmistry and Face Reading</h2>
+                <div class="language-block">
+                    <span class="language-label">中文</span>
+                    <p class="text-content chinese">中國人相信睇相可以了解一個人的命運。斷掌的人性格剛強，做事果斷。面相學中，天庭飽滿代表少年運好。如果一個人的眼尾有魚尾紋，可能代表桃花運旺盛。</p>
+                </div>
+                <div class="language-block">
+                    <span class="language-label english">English</span>
+                    <p class="text-content">Chinese people believe that fortune telling through appearance can reveal one's destiny. People with a <span class="mistranslation" title="❌ Wrong!">cut-off hand</span> have strong personalities and are decisive. In face reading, having a full <span class="mistranslation" title="❌ Wrong!">sky courtyard</span> means good luck in youth. If someone has fishtail lines at the corner of their eyes, it may indicate strong <span class="mistranslation" title="❌ Wrong!">peach flower luck</span>.</p>
+                </div>
+            </div>
+
+            <div class="paragraph-card">
+                <h2 class="paragraph-title">Paragraph 2: 太歲與流年 Tai Sui and Yearly Fortune</h2>
+                <div class="language-block">
+                    <span class="language-label">中文</span>
+                    <p class="text-content chinese">每年都有不同的生肖犯太歲。犯太歲的人容易遇到小人，事事不順。為了化解，人們會到廟宇攝太歲。有些人會請師傅計算流年運程，避開凶日。</p>
+                </div>
+                <div class="language-block">
+                    <span class="language-label english">English</span>
+                    <p class="text-content">Every year, different zodiac signs <span class="mistranslation" title="❌ Wrong!">commit crime against old age</span>. People who offend Tai Sui easily encounter <span class="mistranslation" title="❌ Wrong!">small people</span> and face setbacks. To resolve this, people visit temples to <span class="mistranslation" title="❌ Wrong!">photograph Tai Sui</span>. Some people ask masters to calculate their yearly fortune and avoid unlucky days.</p>
+                </div>
+            </div>
+
+            <div class="paragraph-card">
+                <h2 class="paragraph-title">Paragraph 3: 八字與五行 BaZi and Five Elements</h2>
+                <div class="language-block">
+                    <span class="language-label">中文</span>
+                    <p class="text-content chinese">八字是中國傳統命理學的基礎。如果一個人八字缺水，可能會影響財運。算命師會建議改名或戴水晶來補運。八字相夾的人通常比較適合結婚。</p>
+                </div>
+                <div class="language-block">
+                    <span class="language-label english">English</span>
+                    <p class="text-content"><span class="mistranslation" title="❌ Wrong!">Eight words</span> is the foundation of Chinese fortune telling. If someone's BaZi lacks water, it may affect their wealth luck. Fortune tellers may suggest changing names or wearing crystals to supplement luck. People whose <span class="mistranslation" title="❌ Wrong!">eight words mutually pinch</span> are usually more suitable for marriage.</p>
+                </div>
+            </div>
+
+            <div class="paragraph-card">
+                <h2 class="paragraph-title">Paragraph 4: 貴人與運勢 Benefactors and Fortune</h2>
+                <div class="language-block">
+                    <span class="language-label">中文</span>
+                    <p class="text-content chinese">貴人運強的人，總會在困難時遇到幫助。相反，命帶孤星的人較難得到貴人相助。風水師建議在家中擺放招財貓來增強財運和貴人運。有些人會戴玉器來擋煞。</p>
+                </div>
+                <div class="language-block">
+                    <span class="language-label english">English</span>
+                    <p class="text-content">People with strong <span class="mistranslation" title="❌ Wrong!">expensive person luck</span> always receive help during difficult times. In contrast, people whose destiny carries a <span class="mistranslation" title="❌ Wrong!">lonely star</span> find it harder to meet benefactors. Feng Shui masters suggest placing lucky cats at home to enhance wealth and noble luck. Some people wear jade to <span class="mistranslation" title="❌ Wrong!">block killing</span>.</p>
+                </div>
+            </div>
+
+            <div class="paragraph-card">
+                <h2 class="paragraph-title">Paragraph 5: 中醫基礎 TCM Basics</h2>
+                <div class="language-block">
+                    <span class="language-label">中文</span>
+                    <p class="text-content chinese">中醫認為人體有氣血運行。如果氣虛，人會容易疲倦。上火的人可能會生暗瘡或口腔潰瘍。中醫師會用望聞問切四診來診斷病人，並開涼茶或湯水調理身體。</p>
+                </div>
+                <div class="language-block">
+                    <span class="language-label english">English</span>
+                    <p class="text-content">TCM believes that <span class="mistranslation" title="❌ Wrong!">air and blood</span> circulate in the body. If someone has <span class="mistranslation" title="❌ Wrong!">empty air</span>, they will feel tired easily. People who are <span class="mistranslation" title="❌ Wrong!">on fire</span> may develop acne or mouth ulcers. TCM doctors use the four diagnostic methods of <span class="mistranslation" title="❌ Wrong!">look, smell, ask, cut</span> to diagnose patients, and prescribe herbal tea or soups to regulate the body.</p>
+                </div>
+            </div>
+
+            <div class="paragraph-card">
+                <h2 class="paragraph-title">Paragraph 6: 體質與調理 Body Constitution and Treatment</h2>
+                <div class="language-block">
+                    <span class="language-label">中文</span>
+                    <p class="text-content chinese">中醫將體質分為寒底和熱底。寒底的人手腳冰冷，適合吃溫補食物。濕重的人容易水腫和疲倦。中醫師可能會建議拔罐或刮痧來疏通經絡，排出體內的濕氣。</p>
+                </div>
+                <div class="language-block">
+                    <span class="language-label english">English</span>
+                    <p class="text-content">TCM classifies body constitutions into <span class="mistranslation" title="❌ Wrong!">cold bottom</span> and <span class="mistranslation" title="❌ Wrong!">hot bottom</span>. People with cold constitution have cold hands and feet, suitable for warming foods. People with <span class="mistranslation" title="❌ Wrong!">heavy wet</span> tend to have edema and fatigue. TCM doctors may suggest cupping or <span class="mistranslation" title="❌ Wrong!">scraping sand</span> to unblock meridians and expel dampness from the body.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Answers Section -->
+        <section id="answers" class="section">
+            <div class="paragraph-card">
+                <h2 class="paragraph-title">Answer Key 答案</h2>
+                <table class="answer-table">
+                    <thead>
+                        <tr>
+                            <th>Wrong Translation<br>錯誤翻譯</th>
+                            <th>Chinese<br>中文</th>
+                            <th>Correct Translation<br>正確翻譯</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="wrong">cut-off hand</td>
+                            <td>斷掌</td>
+                            <td class="correct">Simian line / Single palmar crease</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">sky courtyard</td>
+                            <td>天庭</td>
+                            <td class="correct">Forehead</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">peach flower luck</td>
+                            <td>桃花運</td>
+                            <td class="correct">Love luck / Romantic fortune</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">commit crime against old age</td>
+                            <td>犯太歲</td>
+                            <td class="correct">Conflict with Tai Sui / Offend the Year God</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">small people</td>
+                            <td>小人</td>
+                            <td class="correct">Backstabbers / Petty people / Villains</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">photograph Tai Sui</td>
+                            <td>攝太歲</td>
+                            <td class="correct">Appease Tai Sui / Make peace with Tai Sui</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">eight words</td>
+                            <td>八字</td>
+                            <td class="correct">Four Pillars of Destiny / BaZi</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">mutually pinch</td>
+                            <td>相夾</td>
+                            <td class="correct">Compatible / Well-matched</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">expensive person luck</td>
+                            <td>貴人運</td>
+                            <td class="correct">Benefactor luck / Helpful people fortune</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">lonely star</td>
+                            <td>孤星</td>
+                            <td class="correct">Solitary star (a negative destiny sign)</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">block killing</td>
+                            <td>擋煞</td>
+                            <td class="correct">Ward off negative energy / Deflect bad luck</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">air and blood</td>
+                            <td>氣血</td>
+                            <td class="correct">Qi and blood / Vital energy and blood</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">empty air</td>
+                            <td>氣虛</td>
+                            <td class="correct">Qi deficiency</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">on fire</td>
+                            <td>上火</td>
+                            <td class="correct">Excessive internal heat / Heatiness</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">look, smell, ask, cut</td>
+                            <td>望聞問切</td>
+                            <td class="correct">Observation, auscultation/olfaction, inquiry, palpation</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">cold bottom</td>
+                            <td>寒底</td>
+                            <td class="correct">Cold constitution</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">hot bottom</td>
+                            <td>熱底</td>
+                            <td class="correct">Heat constitution</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">heavy wet</td>
+                            <td>濕重</td>
+                            <td class="correct">Excessive dampness / Dampness accumulation</td>
+                        </tr>
+                        <tr>
+                            <td class="wrong">scraping sand</td>
+                            <td>刮痧</td>
+                            <td class="correct">Gua Sha / Scraping therapy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Explanations Section -->
+        <section id="explanations" class="section">
+            <div class="explanation-card">
+                <h3 class="explanation-title">1. 斷掌 ≠ cut-off hand</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「斷」是「切斷」，「掌」是「手掌」，但在掌相學中是指手掌只有一條橫紋。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "斷" means "cut" and "掌" means "palm", but in palmistry it refers to a single crease across the palm.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">2. 天庭 ≠ sky courtyard</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>逐字翻譯錯誤。「天」是「天空」，「庭」是「庭院」，但在面相學中指額頭部分。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Word-by-word error. "天" means "sky" and "庭" means "courtyard", but in face reading it refers to the forehead.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">3. 桃花運 ≠ peach flower luck</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯。「桃花」是「桃樹的花」，但在命理學中代表愛情和異性緣。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation. "桃花" means "peach blossom", but in fortune telling it represents love and romantic relationships.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">4. 犯太歲 ≠ commit crime against old age</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>逐字翻譯錯誤。「犯」不是「犯罪」，「太歲」不是「太老」，而是中國曆法中的年神。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Word-by-word error. "犯" does not mean "commit crime" and "太歲" is not "too old" but the Year God in Chinese astrology.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">5. 小人 ≠ small people</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「小」是「小」，「人」是「人」，但在中國文化中指暗中陷害你的人。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "小" means "small" and "人" means "people", but in Chinese culture it refers to backstabbers or petty villains.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">6. 攝太歲 ≠ photograph Tai Sui</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>同音字錯誤。「攝」有「拍攝」的意思，但在這裡是「安撫、和解」的意思。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Homophone error. "攝" can mean "photograph", but here it means "appease" or "make peace with".</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">7. 八字 ≠ eight words</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「八」是「八」，「字」是「字」，但指的是由天干地支組成的命理符號。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "八" means "eight" and "字" means "words", but it refers to the Heavenly Stems and Earthly Branches in destiny analysis.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">8. 氣血 ≠ air and blood</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「氣」不是「空氣」，而是中醫概念中的生命能量。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "氣" is not "air" but vital energy or life force in TCM concept.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">9. 氣虛 ≠ empty air</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「虛」是「不足」，「氣」是「生命能量」，合起來是指體內能量不足。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "虛" means "deficiency" and "氣" is "vital energy", together meaning insufficient life force.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">10. 上火 ≠ on fire</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「上」是「上升」，「火」是「火」，但在中醫中指體內熱氣過盛。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "上" means "rising" and "火" means "fire", but in TCM it refers to excessive internal heat.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">11. 望聞問切 ≠ look, smell, ask, cut</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「切」不是「切割」，而是「把脈」的意思。這是中醫四診法。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "切" does not mean "cut" but "pulse-taking". These are the four diagnostic methods in TCM.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">12. 寒底/熱底 ≠ cold/hot bottom</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「底」不是「底部」，而是「體質」的意思。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "底" does not mean "bottom" but "constitution" or "body type".</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">13. 濕重 ≠ heavy wet</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「濕」是中醫概念，指體內不正常的水液積聚。「重」表示程度嚴重。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "濕" is a TCM concept referring to abnormal fluid accumulation. "重" indicates severity.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-card">
+                <h3 class="explanation-title">14. 刮痧 ≠ scraping sand</h3>
+                <div class="explanation-content">
+                    <div class="explanation-row">
+                        <span class="explanation-label">中文</span>
+                        <span>字面翻譯錯誤。「痧」不是「沙」，而是指皮膚上出現的紅點。這是一種中醫療法。</span>
+                    </div>
+                    <div class="explanation-row">
+                        <span class="explanation-label">English</span>
+                        <span>Literal translation error. "痧" is not "sand" but refers to red spots appearing on the skin. This is a TCM therapy.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methods Section -->
+        <section id="methods" class="section">
+            <div class="paragraph-card">
+                <h2 class="paragraph-title">Common Translation Approaches 常見翻譯方法</h2>
+                <div class="method-grid">
+                    <div class="method-card">
+                        <h3 class="method-name">Literal Translation 字面翻譯</h3>
+                        <p class="method-desc">Word-by-word translation, often causes errors<br>逐字翻譯，常導致錯誤</p>
+                        <div class="method-example">
+                            <span>斷掌</span>
+                            <span class="arrow">→</span>
+                            <span class="example-wrong">broken palm ❌</span>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3 class="method-name">Free Translation 意譯</h3>
+                        <p class="method-desc">Translate based on meaning<br>根據意思翻譯</p>
+                        <div class="method-example">
+                            <span>桃花運</span>
+                            <span class="arrow">→</span>
+                            <span class="example-correct">Love luck ✓</span>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3 class="method-name">Transliteration 音譯</h3>
+                        <p class="method-desc">Use pronunciation<br>用發音來表達</p>
+                        <div class="method-example">
+                            <span>八字</span>
+                            <span class="arrow">→</span>
+                            <span class="example-correct">BaZi ✓</span>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3 class="method-name">Transliteration + Explanation 音譯+解釋</h3>
+                        <p class="method-desc">Transliteration with explanation<br>音譯加上解釋</p>
+                        <div class="method-example">
+                            <span>太歲</span>
+                            <span class="arrow">→</span>
+                            <span class="example-correct">Tai Sui (Year God) ✓</span>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3 class="method-name">Borrowing Technical Terms 借用術語</h3>
+                        <p class="method-desc">Use existing technical terms<br>使用專業術語</p>
+                        <div class="method-example">
+                            <span>斷掌</span>
+                            <span class="arrow">→</span>
+                            <span class="example-correct">Simian line ✓</span>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3 class="method-name">Cultural Adaptation 文化調適</h3>
+                        <p class="method-desc">Explain using target culture concepts<br>用目標文化的概念解釋</p>
+                        <div class="method-example">
+                            <span>小人</span>
+                            <span class="arrow">→</span>
+                            <span class="example-correct">Backstabbers ✓</span>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3 class="method-name">TCM Standard Terms 中醫標準術語</h3>
+                        <p class="method-desc">Use internationally recognized TCM terminology<br>使用國際認可的中醫術語</p>
+                        <div class="method-example">
+                            <span>氣虛</span>
+                            <span class="arrow">→</span>
+                            <span class="example-correct">Qi deficiency ✓</span>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3 class="method-name">Functional Translation 功能翻譯</h3>
+                        <p class="method-desc">Translate based on function or effect<br>根據功能或效果翻譯</p>
+                        <div class="method-example">
+                            <span>刮痧</span>
+                            <span class="arrow">→</span>
+                            <span class="example-correct">Scraping therapy ✓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>🌿 TCM & Chinese Cultural Terms Translation</p>
+            <p>中醫與中國文化詞彙翻譯練習</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
